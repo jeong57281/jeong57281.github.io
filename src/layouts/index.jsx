@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "components/header";
 import Nav from "components/nav";
 import { ThemeContext } from "contexts/theme";
@@ -8,22 +8,37 @@ import "assets/styles/global.scss";
 import SideLayout from "layouts/side-layout";
 
 const Index = ({ children, location, data }) => {
-  // dark mode
-  const [theme, setTheme] = useState('');
+  const [ready, setReady] = useState(false); // conditional rendering
+  const [minimize, setMinimize] = useState(''); // minimize navgation bar
+  const [theme, setTheme] = useState(''); // dark mode
+  // get local storage item
+  useEffect(() => {
+    if(localStorage.getItem('minimize')) setMinimize('small');
+    if(localStorage.getItem('theme')) setTheme('dark');
+    setReady(true);
+  }, [])
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <HelmetProvider>
-        <main className={!theme ? style.main : style.mainDark}>
-          <div className={style.header}>
-            <Header location={location} data={data}/>
-          </div>
-          <div className={style.section}>
-            <SideLayout
-              aside={<Nav location={location}/>}
-              section={<>{children}</>}
-            />
-          </div>
-        </main>
+        { ready &&
+          <main className={!theme ? style.main : style.mainDark}>
+            <div className={style.header}>
+              <Header location={location} data={data}/>
+            </div>
+            <div className={style.section}>
+              <SideLayout
+                aside={
+                  <Nav
+                    location={location}
+                    minimize={minimize}
+                    setMinimize={setMinimize}
+                  />
+                }
+                section={<>{children}</>}
+              />
+            </div>
+          </main>
+        }
       </HelmetProvider>
     </ThemeContext.Provider>
   );
