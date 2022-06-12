@@ -1,0 +1,56 @@
+@import "../libs";
+
+@mixin toc($color: $LIGHT_COLOR) {
+  @include tablet { margin-top: 0; }
+  margin-top: 60px;
+  font-weight: 500;
+  .toc-list {
+    a {
+      flex: 1;
+      display: block;
+      text-decoration: none;
+      color: reverseColor($color);
+      transition: background-color ease 0.5s;
+      &:hover {
+        background: url(../../img/overlay.png), darkColor($color);
+      }
+    }
+    > a {
+      padding: 5px 0 5px 15px;
+    }
+    .toc-auto {
+      > ul > li {
+        > p > a, > a {
+          padding: 5px 15px 5px 30px;
+        }
+        > ul > li {
+          > p > a, > a {
+            padding: 5px 15px 5px 50px;
+          }
+          > ul > li {
+            > p > a, > a {
+              padding: 5px 15px 5px 70px;
+            }
+            > ul {
+              display: none;
+            }
+          }
+        }
+      }
+      li {
+        list-style: none;
+      }
+    }
+    .active {
+      background: url(../../img/overlay.png), darkColor($color);
+    }
+  }
+}
+
+.toc {
+  @include toc;
+}
+
+.toc-dark {
+  @include toc($DARK_COLOR);
+}

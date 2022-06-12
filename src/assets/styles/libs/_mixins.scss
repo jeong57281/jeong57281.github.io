@@ -1,0 +1,53 @@
+$breakpoint-tablet: 767px;
+$breakpoint-desktop: 1023px;
+
+@mixin mobile {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin flex-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hidden-scroll {
+  overflow: auto;
+  & {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+}
+
+@mixin custom-scroll($color) {
+  @include desktop {
+    &::-webkit-scrollbar {
+      width: 14px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: url(../../img/overlay.png), darkColor($color);
+      transition: background-color ease 0.5s;
+    }
+    &::-webkit-scrollbar-track {
+      background: url(../../img/overlay.png), lightColor($color);
+      transition: background-color ease 0.5s;
+    }
+  }
+}

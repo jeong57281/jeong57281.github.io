@@ -1,0 +1,16 @@
+@function lightColor($color) {
+  @return lighten($color, 8%);
+}
+
+@function darkColor($color) {
+  @return darken($color, 8%);
+} 
+
+@function reverseColor($color) {
+  @if ($color == $LIGHT_COLOR) {
+    @return $DARK_COLOR;
+  }
+  @else {
+    @return $LIGHT_COLOR;
+  }
+}

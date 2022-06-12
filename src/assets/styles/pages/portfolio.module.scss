@@ -1,0 +1,13 @@
+@import "../libs/";
+
+@mixin folio($color: $LIGHT_COLOR) {
+  height: 100%;
+}
+
+.folio {
+  @include folio;
+}
+
+.folio-dark {
+  @include folio($DARK_COLOR);
+}

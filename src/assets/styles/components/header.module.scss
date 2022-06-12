@@ -1,0 +1,183 @@
+@import "../libs";
+
+@mixin header($color: $LIGHT_COLOR) {
+  @include flex-middle;
+  width: 100%;
+  height: 100%;
+  .header-control {
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      color: reverseColor($color);
+      text-decoration: none;
+      font-size: 1.8em;
+      span {
+        font-weight: 600;
+      }
+    }
+    button {
+      @include desktop { display: none; }
+      background-color: transparent;
+      border: none;
+      height: 1.2em;
+      width: 1.5em;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+      .line {
+        padding: 0;
+        width: 100%;
+        height: 20%;
+        border-radius: 2px;
+        background-color: reverseColor($color);
+        position: absolute;
+        transition: all 0.2s;
+        &.top {
+          top: 0;
+        }
+        &.middle {
+          @include fade-in(0.2s);
+          top: 40%;
+        }
+        &.bottom {
+          top: 80%;
+        }
+      }
+    }
+  }
+  .mobile-nav {
+    @include desktop { display: none; }
+    @include fade-out;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    visibility: hidden;
+    transition: visibility 0.7s;
+    background: rgba(50, 50, 50, 0.5);
+    .mobile-menu {
+      @include slide-out-right(0.5s);
+      width: 100%;
+      height: 100%;
+      max-width: 300px;
+      float: right;
+      background: url(../../img/overlay.png), $color;
+      transition: background-color ease 0.5s;
+      display: flex;
+      flex-direction: column;
+      .mobile-menu-link {
+        width: 100%;
+        margin-top: 60px;
+        ul {
+          li {
+            list-style: none;
+            a {
+              display: block;
+              width: 100%;
+              padding: 15px 0 15px 30px;
+              text-decoration: none;
+              font-size: 1.9em;
+              color: reverseColor($color);
+              transition: background-color ease 0.5s;
+              &:hover {
+                background: url(../../img/overlay.png), darkColor($color);
+              }
+            }
+          }
+          .active {
+            background: url(../../img/overlay.png), darkColor($color);
+          }
+        }
+      }
+      .mobile-aside {
+        @include hidden-scroll;
+        flex: 1;
+        border-top: $BORDER_WIDTH solid lightColor($color);
+        transition: border-color ease 0.5s;
+        .blog-tags {
+          @include hidden-scroll;
+          .blog-tags-list {
+            display: flex;
+            flex-direction: column;
+            li {
+              list-style: none;
+              a {
+                width: 100%;
+                display: block;
+                text-decoration: none;
+                color: reverseColor($color);
+                font-size: 1.9em;
+                padding: 15px 10px 15px 30px;
+                transition: background-color ease 0.5s;
+                &:hover {
+                  background: url(../../img/overlay.png), darkColor($color);
+                }
+              }
+              .active {
+                background: url(../../img/overlay.png), darkColor($color);
+              }
+            }
+          }
+        }
+      }
+      .mobile-menu-control {
+        width: 100%;
+        border-top: $BORDER_WIDTH solid lightColor($color);
+        transition: border-color ease 0.5s;
+        button {
+          background: none;
+          border: 0;
+          width: 60px;
+          height: 60px;
+          svg {
+            width: 30px;
+            height: 30px;
+            fill: reverseColor($color);
+          }
+        }
+      }
+    }
+  }
+  &.show {
+    .header-control {
+      button {
+        .line {
+          background-color: reverseColor($color);
+          &.top {
+            top: 50%;
+            transform: rotate(45deg);
+          }
+          &.middle {
+            @include fade-out(0.4s);
+          }
+          &.bottom {
+            top: 50%;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+    .mobile-nav {
+      visibility: visible;
+      @include fade-in;
+      .mobile-menu {
+        @include slide-in-right(0.5s, 0.2s);
+      }
+    }
+  }
+}
+
+.header {
+  @include header;
+}
+
+.header-dark {
+  @include header($DARK_COLOR);
+}

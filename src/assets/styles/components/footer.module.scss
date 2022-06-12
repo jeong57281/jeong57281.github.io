@@ -1,0 +1,45 @@
+@import "../libs";
+
+@mixin footer($color: $LIGHT_COLOR) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 250px;
+  border-top: $BORDER_WIDTH solid lightColor($color);
+  transition: border-color ease 0.5s;
+  color: reverseColor($color);
+  h3,
+  .hits {
+    margin-bottom: 0.5em;
+  }
+  ul {
+    display: flex;
+    margin-bottom: 0.5em;
+    li {
+      list-style: none;
+      margin-right: 1em;
+      &:last-child { margin-right: 0; }
+      a {
+        svg {
+          fill: reverseColor($color);
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+  }
+  .footer-copyright  {
+    text-align: center;
+    font-size: 0.6em;
+  }
+}
+
+.footer {
+  @include footer;
+}
+
+.footer-dark {
+  @include footer($DARK_COLOR);
+}

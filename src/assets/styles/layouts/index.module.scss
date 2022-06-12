@@ -1,0 +1,34 @@
+@import "../libs";
+
+@mixin main($color: $LIGHT_COLOR) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: url(../../img/overlay.png), $color;
+  transition: background-color ease 0.5s;
+  .header {
+    width: 100%;
+    height: 60px;
+    border-bottom: $BORDER_WIDTH solid lightColor($color);
+    transition: border-color ease 0.5s;
+  }
+  .section {
+    height: calc(100% - 62px);
+    flex: 1;
+  }
+}
+
+.main {
+  @include main;
+}
+
+.main-dark {
+  @include main($DARK_COLOR);
+}
