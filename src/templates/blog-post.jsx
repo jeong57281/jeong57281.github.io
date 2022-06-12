@@ -79,13 +79,13 @@ const BlogPost = ({ location, data }) => {
     <div className={!theme ? style.post : style.postDark}>
       <SideLayout
         aside={
-          <aside className={style.postToc}>
+          <div className={style.postToc}>
             <Toc
               html={post.tableOfContents}
               title={markdownRemark.frontmatter.title}
               titleId={titleId}
             />
-          </aside>
+          </div>
         }
         section={
           <VerticalLayout>
