@@ -6,12 +6,11 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 250px;
+  min-height: 200px;
   border-top: $BORDER_WIDTH solid lightColor($color);
   transition: border-color ease 0.5s;
   color: reverseColor($color);
-  h3,
-  .hits {
+  h3 {
     margin-bottom: 0.5em;
   }
   ul {

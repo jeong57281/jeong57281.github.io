@@ -142,7 +142,6 @@ export const query = graphql`
     site {
       siteMetadata {
         nickname
-        hits
         github
         instagram
         gmail

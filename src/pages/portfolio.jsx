@@ -37,7 +37,6 @@ export const query = graphql`
         description
         about
         profile
-        hits
         github
         instagram
         gmail

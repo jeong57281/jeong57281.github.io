@@ -98,7 +98,6 @@ module.exports = {
     ],
     postPerPage: 4,
     profile: '/img/profile/profile.jpg',
-    hits: 'https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fjeong57281.github.io&count_bg=%2382746D&title_bg=%2382746D&icon=&icon_color=%23E7E7E7&title=Visitor&edge_flat=false',
     github: 'https://github.com/jeong57281',
     instagram: 'https://www.instagram.com/j__ghy__/',
     gmail: 'jeong5728@gmail.com',

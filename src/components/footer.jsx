@@ -8,7 +8,6 @@ import Instagram from "assets/img/instagram.svg";
 import Blog from "assets/img/blog.svg";
 
 const Footer = ({ data }) => {
-  const hits = get(data, 'site.siteMetadata.hits', false);
   const github = get(data, 'site.siteMetadata.github', false);
   const instagram = get(data, 'site.siteMetadata.instagram', false);
   const gmail = get(data, 'site.siteMetadata.gmail', false);
@@ -24,9 +23,6 @@ const Footer = ({ data }) => {
         { instagram && <li> <a href={instagram}> <Instagram/> </a> </li> }
         { blog && <li> <a href={blog}> <Blog/> </a> </li> }
       </ul>
-      <div className={style.hits}>
-        { hits && <img src={hits}/> }
-      </div>
       <div className={style.footerCopyright}>
         © JeongHyeon Park. All rights reserved.
         <br />

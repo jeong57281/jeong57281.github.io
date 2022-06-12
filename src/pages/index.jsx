@@ -183,7 +183,6 @@ export const query = graphql`
       siteMetadata {
         nickname
         postPerPage
-        hits
         github
         instagram
         gmail
