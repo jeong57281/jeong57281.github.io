@@ -16,15 +16,7 @@ const Nav = ({ location }) => {
   if(paths.length && paths[0] === 'about') page = 'about';
   if(paths.length && paths[0] === 'portfolio') page = 'portfolio';
   // minimize navgation bar
-  let initMinimize = '';
-  if(typeof localStorage !== 'undefined'){
-    if(localStorage.getItem('minimize')) initMinimize = 'small';
-    if(page === 'portfolio') {
-      initMinimize = 'small';
-      localStorage.setItem("minimize", 'small');
-    }
-  }
-  const [minimize, setMinimize] = useState(initMinimize);
+  const [minimize, setMinimize] = useState('');
   useEffect(() => {
     if(page === 'portfolio') {
       setMinimize(true);
@@ -33,6 +25,7 @@ const Nav = ({ location }) => {
   }, [location]);
   useEffect(() => {
     if(localStorage.getItem('theme')) setTheme('dark');
+    if(localStorage.getItem('minimize')) setMinimize('small');
   }, []);
   return (
     <nav className={!theme ? style.nav : style.navDark}>
