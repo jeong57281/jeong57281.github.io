@@ -14,12 +14,12 @@
     ul {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5em;
       li {
         list-style: none;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 0 0.5em 0.5em 0;
         img {
           width: 3em;
         }
