@@ -1,8 +1,8 @@
 @import "../libs/";
 
 @mixin not-found($color: $LIGHT_COLOR) {
-  height: 100%;
   @include flex-middle;
+  height: 100%;
   .not-found-body {
     display: flex;
     flex-direction: column;

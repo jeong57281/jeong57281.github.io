@@ -82,8 +82,9 @@ CI/CD 툴로 사용하기 편리한 git actions 을 사용하였는데
 * CD(Continuous Delivery & Deployment) 지속적 전달 & 배포 : 배포를 자동화하고 slack 으로 알림이 가도록 설정했다.
 
 project/
-<br>ㅤfrontend/
-<br>ㅤBackend/
+<br/>┝ frontend/
+<br/>┕ Backend/
+
 
 이 때 관리와 자동 배포를 위해서 위와 같은 폴더를 각각의 레포지토리로 나누어야 했다.
 
