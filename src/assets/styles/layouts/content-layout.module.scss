@@ -3,7 +3,10 @@
 .layout {
   width: 100%;
   max-width: 60em;
-  .wrapper-padding {
-    padding: 0 30px;
+  .wrapper-min-height {
+    min-height: calc(var(--vh, 1vh) * 100 - 62px);
+    .wrapper-padding {
+      padding: 30px;
+    }
   }
 }

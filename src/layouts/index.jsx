@@ -10,8 +10,15 @@ const Index = ({ children, location, data }) => {
   const [ready, setReady] = useState(false); // conditional rendering
   const [minimize, setMinimize] = useState(''); // minimize navgation bar
   const [theme, setTheme] = useState(''); // dark mode
-  // get local storage item
   useEffect(() => {
+    // get ios view height
+    const setScreenSize = () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    setScreenSize();
+    window.addEventListener('resize', () => setScreenSize());
+    // get local storage item
     if(localStorage.getItem('minimize')) setMinimize('small');
     if(localStorage.getItem('theme')) setTheme('dark');
     setReady(true);

@@ -2,8 +2,8 @@
 
 @mixin intro($color: $LIGHT_COLOR) {
   .profile {
-    @include mobile { padding-top: 60px; }
-    padding-top: 120px;
+    @include mobile { padding-top: 30px; }
+    padding-top: 90px;
     display: flex;
     flex-direction: column;
     color: reverseColor($color);

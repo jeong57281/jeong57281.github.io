@@ -3,7 +3,7 @@
 @mixin duce($color: $LIGHT_COLOR) {
   color: reverseColor($color);
   font-weight: 200;
-  margin-bottom: 120px;
+  margin-bottom: 90px;
   overflow: hidden;
   .skill {
     display: flex;
