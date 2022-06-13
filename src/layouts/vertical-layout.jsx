@@ -7,7 +7,6 @@ const VerticalLayout = ({ children }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={!theme ? style.layout : style.layoutDark}>
-      <div className={style.dummyHeight}/>
       <div className={style.scroll} id="scroll">
         {children}
       </div>

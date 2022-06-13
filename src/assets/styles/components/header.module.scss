@@ -99,7 +99,7 @@
       }
       .mobile-aside {
         @include hidden-scroll;
-        flex: 1;
+        height: 100%;
         border-top: $BORDER_WIDTH solid lightColor($color);
         transition: border-color ease 0.5s;
         .blog-tags {

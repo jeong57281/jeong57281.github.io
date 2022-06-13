@@ -21,7 +21,6 @@
         list-style: none;
         a {
           @include flex-middle;
-          flex: 1;
           height: 60px;
           font-size: 1.6em;
           text-align: center;
@@ -79,7 +78,6 @@
       li {
         list-style: none;
         a {
-          flex: 1;
           display: block;
           font-size: 1.9em;
           text-decoration: none;
