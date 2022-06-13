@@ -1,0 +1,75 @@
+@import "../libs";
+  
+@mixin post-item($color: $LIGHT_COLOR) {
+  @include mobile { flex-direction: column; }
+  text-decoration: none;
+  padding: 15px 0;
+  display: flex;
+  &:hover {
+    .item .image .ratio img {
+      filter: brightness(1);
+    }
+  }
+  .image {
+    @include mobile { width: 100%; }
+    width: 10em;
+    .ratio {
+      @include mobile { padding-top: 40%; }
+      padding-top: 80%;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: $BORDER_RADIUS;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: brightness(0.9);
+        transition: filter ease 0.3s;
+      }
+    }
+  }
+  .info {
+    @include mobile { width: 100%; }
+    width: calc(100% - 10em);
+    .text {
+      @include mobile { padding: 15px 0 0 0; }
+      padding-left: 15px;
+      height: 100%;
+      color: reverseColor($color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      h2,
+      i,
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+      h2 {
+        font-size: 1.6em;
+        font-weight: bold;
+      }
+      i {
+        font-size: 1em;
+        font-weight: 200;
+      }
+      p {
+        font-size: 1em;
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
+}
+
+.post-item {
+  @include post-item;
+}
+
+.post-item-dark {
+  @include post-item($DARK_COLOR);
+}

@@ -3,125 +3,64 @@
 @mixin blog($color: $LIGHT_COLOR) {
   height: 100%;
   display: flex;
-  overflow: hidden;
-  .blog-tags {
-    @include tablet { display: none; }
-    @include hidden-scroll;
-    width: 300px;
+  .aside {
     height: 100%;
-    border-right: $BORDER_WIDTH solid lightColor($color);
-    transition: border-color ease 0.5s;
-    .blog-tags-list {
-      margin-top: 60px;
-      display: flex;
-      flex-direction: column;
-      li {
-        list-style: none;
-        a {
-          display: block;
-          font-size: 1.9em;
-          text-decoration: none;
-          color: reverseColor($color);
-          padding: 15px 10px 15px 30px;
-          transition: background-color ease 0.5s;
-          &:hover {
+    .tag {
+      @include tablet { display: none; }
+      @include hidden-scroll;
+      width: 300px;
+      height: 100%;
+      border-right: $BORDER_WIDTH solid lightColor($color);
+      transition: border-color ease 0.5s;
+      .tag-list {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        li {
+          list-style: none;
+          a {
+            display: block;
+            font-size: 1.9em;
+            text-decoration: none;
+            color: reverseColor($color);
+            padding: 15px 10px 15px 30px;
+            transition: background-color ease 0.5s;
+            &:hover {
+              background: url(../../img/overlay.png), darkColor($color);
+            }
+          }
+          .active {
             background: url(../../img/overlay.png), darkColor($color);
           }
         }
-        .active {
-          background: url(../../img/overlay.png), darkColor($color);
-        }
       }
     }
   }
-  .blog-post-list {
-    @include mobile { margin-top: 30px; }
+  .article {
+    @include desktop { width: calc(100% - 302px); }
     width: 100%;
-    max-width: 60em;
-    margin-top: 45px;
-    display: flex;
-    flex-direction: column;
-    li {
-      list-style: none;
-      @include mobile { margin-top: 15px; }
-      a {
-        text-decoration: none;
-        width: 100%;
-        padding: 15px 0;
+    height: 100%;
+    .post-list {
+      @include mobile { margin-top: 30px; }
+      width: 100%;
+      max-width: 60em;
+      margin-top: 45px;
+      display: flex;
+      flex-direction: column;
+      li {
+        @include mobile { margin-top: 15px; }
+        list-style: none;
         border-bottom: $BORDER_WIDTH solid lightColor($color);
-        transition: border-color ease 0.3s;
-        display: flex;
-        @include mobile { flex-direction: column; }
-        &:hover {
-          .post-image .ratio img {
-            filter: brightness(1);
-          }
-        }
-        .post-image {
-          width: 10em;
-          @include mobile { width: 100%; }
-          .ratio {
-            padding-top: 80%;
-            @include mobile { padding-top: 40%; }
-            position: relative;
-            img {
-              width: 100%;
-              height: 100%;
-              border-radius: $BORDER_RADIUS;
-              object-fit: cover;
-              position: absolute;
-              top: 0;
-              left: 0;
-              filter: brightness(0.9);
-              transition: filter ease 0.3s;
-            }
-          }
-        }
-        .post-info {
-          @include mobile { padding: 15px 0 0 0; }
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          padding-left: 15px;
-          color: reverseColor($color);
-          h2 {
-            font-size: 1.6em;
-            font-weight: bold;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-          }
-          i {
-            font-size: 1em;
-            font-weight: 200;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-          }
-          p {
-            font-size: 1em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-          }
-        }
+        transition: border-color ease 0.5s;
       }
     }
   }
-
   .m-pagination {
-    display: none;
     @include mobile {
       display: flex;
       justify-content: space-between;
     }
+    display: none;
     margin: 30px 0;
     button {
       background-color: transparent;
@@ -140,7 +79,6 @@
       }
     }
   }
-
   .pagination {
     @include mobile { display: none; }
     @include flex-middle;

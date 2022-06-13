@@ -10,11 +10,15 @@ const Intro = ({ data }) => {
       <div className={style.profile}>
         <div className={style.profileIntro}>
           <div className={style.profileImage}>
-            <img src={profile}/>
+            <div className={style.ratio}>
+              <img src={profile}/>
+            </div>
           </div>
-          <div className={style.profileText}>
-            <h1>{name}</h1>
-            <h3>{`"${description}"`}</h3>
+          <div className={style.profileInfo}>
+            <div className={style.profileText}>
+              <h1>{name}</h1>
+              <h3>{`"${description}"`}</h3>
+            </div>
           </div>
         </div>
         <div className={style.profileAbout}>

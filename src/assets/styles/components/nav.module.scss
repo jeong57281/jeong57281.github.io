@@ -5,14 +5,12 @@
   height: 100%;
   border-right: $BORDER_WIDTH solid lightColor($color);
   transition: border-color 0.5s;
-  overflow: hidden;
   .small {
     width: 60px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: width 1s ease;
     ul {
       display: flex;
       flex-direction: column;
@@ -70,7 +68,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: width 1s ease;
     ul {
       display: flex;
       flex-direction: column;

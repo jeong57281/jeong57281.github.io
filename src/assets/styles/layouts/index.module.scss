@@ -1,6 +1,6 @@
 @import "../libs";
 
-@mixin main($color: $LIGHT_COLOR) {
+@mixin layout($color: $LIGHT_COLOR) {
   position: absolute;
   top: 0;
   left: 0;
@@ -16,15 +16,34 @@
     border-bottom: $BORDER_WIDTH solid lightColor($color);
     transition: border-color ease 0.5s;
   }
-  .section {
+  .main {
+    width: 100%;
     height: calc(100% - 62px);
+    display: flex;
+    .nav {
+      height: 100%;
+    }
+    .section {
+      width: 100%;
+      height: 100%;
+    }
+    .big {
+      @include desktop {
+        width: calc(100% - 302px);
+      }
+    }
+    .small {
+      @include desktop {
+        width: calc(100% - 62px);
+      }
+    }
   }
 }
 
-.main {
-  @include main;
+.layout {
+  @include layout;
 }
 
-.main-dark {
-  @include main($DARK_COLOR);
+.layout-dark {
+  @include layout($DARK_COLOR);
 }

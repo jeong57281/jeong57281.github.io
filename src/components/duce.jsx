@@ -40,18 +40,22 @@ const Duce = ({ data }) => {
                   </div>
                 </div>
                 <div className={style.projectInfo}>
-                  <h2>{title}</h2>
-                  <p>{description}</p>
-                  <ul>
-                    {links && links.map((_el, idx) => {
-                      const { name, href } = _el;
-                      return (
-                        <li key={idx}>
-                          <a href={href} target="_blank">{name}</a>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <div className={style.projectTextWrap}>
+                    <div className={style.projectText}>
+                      <h2>{title}</h2>
+                      <p>{description}</p>
+                      <ul>
+                        {links && links.map((_el, idx) => {
+                          const { name, href } = _el;
+                          return (
+                            <li key={idx}>
+                              <a href={href} target="_blank">{name}</a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

@@ -3,9 +3,9 @@ import { Link, graphql } from "gatsby";
 import { ThemeContext } from "contexts/theme";
 import * as style from "assets/styles/pages/index.module.scss";
 import Footer from "components/footer";
-import SideLayout from "layouts/side-layout";
 import ContentLayout from "layouts/content-layout";
 import VerticalLayout from "layouts/vertical-layout";
+import PostItem from "components/post-item";
 import { Helmet } from "react-helmet-async";
 
 const Index = ({ location, data }) => {
@@ -111,68 +111,54 @@ const Index = ({ location, data }) => {
   return (
     <div className={!theme ? style.blog : style.blogDark}>
       <Helmet title={`${nickname}'s blog`}/>
-      <SideLayout
-        aside={
-          <div className={style.blogTags}>
-            <ul className={style.blogTagsList}>
-              <li>
-                <Link
-                  to='/'
-                  className={!tag ? style.active : ''}
-                  onClick={scrollTop}
-                >
-                  All
-                </Link>
-              </li>
-              {group.map((el, idx) => {
-                return(
+      <aside className={style.aside}>
+        <div className={style.tag}>
+          <ul className={style.tagList}>
+            <li>
+              <Link
+                to='/'
+                className={!tag ? style.active : ''}
+                onClick={scrollTop}
+              >
+                All
+              </Link>
+            </li>
+            {group.map((el, idx) => {
+              return(
+                <li key={idx}>
+                  { el.tags && 
+                    <Link
+                      to={`/?tag=${encodeURI(el.tags)}`}
+                      className={tag === el.tags ? style.active : ''}
+                      onClick={scrollTop}
+                    >
+                      {`#${el.tags}`}
+                    </Link>
+                  }
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </aside>
+      <article className={style.article}>
+        <VerticalLayout>
+          <ContentLayout>
+            <ul className={style.postList}>
+              {posts.map((node, idx) => {
+                return (
                   <li key={idx}>
-                    { el.tags && 
-                      <Link
-                        to={`/?tag=${encodeURI(el.tags)}`}
-                        className={tag === el.tags ? style.active : ''}
-                        onClick={scrollTop}
-                      >
-                        {`#${el.tags}`}
-                      </Link>
-                    }
+                    <PostItem tag={tag} node={node}/>
                   </li>
                 );
               })}
             </ul>
-          </div>
-        }
-        section={
-          <VerticalLayout>
-            <ContentLayout>
-              <ul className={style.blogPostList}>
-                {posts.map((el, idx) => {
-                  const { titleImage, title, date } = el.frontmatter;
-                  return (
-                    <li key={idx}>
-                      <Link to={!tag ? el.fields.slug : `${el.fields.slug}?tag=${encodeURI(tag)}`}>
-                        <div className={style.postImage}>
-                          <div className={style.ratio}>
-                            <img src={titleImage}/>
-                          </div>
-                        </div>
-                        <div className={style.postInfo}>
-                          <h2>{title}</h2>
-                          <i>{`Posted on ${date}`}</i>
-                          <p>{el.excerpt}</p>
-                        </div>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <Pagination/>
-              <MPagination/>
-            </ContentLayout>
-            <Footer data={data}/>
-          </VerticalLayout>
-        }
-      />
+            <Pagination/>
+            <MPagination/>
+          </ContentLayout>
+          <Footer data={data}/>
+        </VerticalLayout>
+      </article>
     </div>
   );
 }

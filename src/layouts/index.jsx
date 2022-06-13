@@ -5,7 +5,6 @@ import { ThemeContext } from "contexts/theme";
 import { HelmetProvider } from 'react-helmet-async';
 import * as style from "assets/styles/layouts/index.module.scss";
 import "assets/styles/global.scss";
-import SideLayout from "layouts/side-layout";
 
 const Index = ({ children, location, data }) => {
   const [ready, setReady] = useState(false); // conditional rendering
@@ -21,23 +20,23 @@ const Index = ({ children, location, data }) => {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <HelmetProvider>
         { ready &&
-          <main className={!theme ? style.main : style.mainDark}>
-            <div className={style.header}>
+          <div className={!theme ? style.layout: style.layoutDark}>
+            <header className={style.header}>
               <Header location={location} data={data}/>
-            </div>
-            <div className={style.section}>
-              <SideLayout
-                aside={
-                  <Nav
-                    location={location}
-                    minimize={minimize}
-                    setMinimize={setMinimize}
-                  />
-                }
-                section={<>{children}</>}
-              />
-            </div>
-          </main>
+            </header>
+            <main className={style.main}>
+              <nav className={style.nav}>
+                <Nav
+                  location={location}
+                  minimize={minimize}
+                  setMinimize={setMinimize}
+                />
+              </nav>
+              <section className={`${style.section} ${minimize ? style.small : style.big}`}>
+                {children}
+              </section>
+            </main>
+          </div>
         }
       </HelmetProvider>
     </ThemeContext.Provider>

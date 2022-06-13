@@ -6,7 +6,7 @@ import Toc from "components/toc";
 import Footer from "components/footer";
 import Utterances from "components/Utterances";
 import get from "lodash/get";
-import SideLayout from "layouts/side-layout";
+import PostItem from "components/post-item";
 import ContentLayout from "layouts/content-layout";
 import VerticalLayout from "layouts/vertical-layout";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
@@ -29,45 +29,17 @@ const BlogPost = ({ location, data }) => {
   const nextNode = postIndex  < postDataList.length-1 ? postDataList[postIndex+1] : undefined;
   const PrevPost = () => {
     if(!prevNode) return <></>;
-    const { excerpt } = prevNode;
-    const { title, titleImage, date } = prevNode.frontmatter;
-    const { slug } = prevNode.fields;
     return (
       <li>
-        <Link to={!tag ? slug : `${slug}?tag=${encodeURI(tag)}`}>
-          <div className={style.postImage}>
-            <div className={style.ratio}>
-              <img src={titleImage}/>
-            </div>
-          </div>
-          <div className={style.postInfo}>
-            <h2>{`${title}`}</h2>
-            <i>{`Posted on ${date}`}</i>
-            <p>{excerpt}</p>
-          </div>
-        </Link>
+        <PostItem tag={tag} node={prevNode}/>
       </li>
     );
   };
   const NextPost = () => {
     if(!nextNode) return <></>;
-    const { excerpt } = nextNode;
-    const { title, titleImage, date } = nextNode.frontmatter;
-    const { slug } = nextNode.fields;
     return (
       <li>
-        <Link to={!tag ? slug : `${slug}?tag=${encodeURI(tag)}`}>
-          <div className={style.postImage}>
-            <div className={style.ratio}>
-              <img src={titleImage}/>
-            </div>
-          </div>
-          <div className={style.postInfo}>
-            <h2>{`${title}`}</h2>
-            <i>{`Posted on ${date}`}</i>
-            <p>{excerpt}</p>
-          </div>
-        </Link>
+        <PostItem tag={tag} node={nextNode}/>
       </li>
     );
   };
@@ -77,62 +49,60 @@ const BlogPost = ({ location, data }) => {
   const titleId = markdownRemark.id.replaceAll(/[0-9\-]/g, '');
   return (
     <div className={!theme ? style.post : style.postDark}>
-      <SideLayout
-        aside={
-          <div className={style.postToc}>
-            <Toc
-              html={post.tableOfContents}
-              title={markdownRemark.frontmatter.title}
-              titleId={titleId}
-            />
-          </div>
-        }
-        section={
-          <VerticalLayout>
-            <ContentLayout>
-              <div className={style.postWrap}>
-                <div className={style.postHead}>
-                  <h1 id={titleId}>{markdownRemark.frontmatter.title}</h1>
-                  <i>{`Posted on ${markdownRemark.frontmatter.date}`}</i>
-                  <ul className={style.postTags}>
-                    {markdownRemark.frontmatter.tags.map((el, idx) => (
-                      <li key={idx}>
-                        { el &&
-                          <Link to={`/?tag=${encodeURI(el)}`}>{`#${el}`}</Link>
-                        }
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div
-                  className={style.postBody}
-                  dangerouslySetInnerHTML={{ __html: post.html }}
-                >
-                </div>
+      <div className={style.aside}>
+        <div className={style.postToc}>
+          <Toc
+            html={post.tableOfContents}
+            title={markdownRemark.frontmatter.title}
+            titleId={titleId}
+          />
+        </div>
+      </div>
+      <div className={style.section}>
+        <VerticalLayout>
+          <ContentLayout>
+            <div className={style.postWrap}>
+              <div className={style.postHead}>
+                <h1 id={titleId}>{markdownRemark.frontmatter.title}</h1>
+                <i>{`Posted on ${markdownRemark.frontmatter.date}`}</i>
+                <ul className={style.postTags}>
+                  {markdownRemark.frontmatter.tags.map((el, idx) => (
+                    <li key={idx}>
+                      { el &&
+                        <Link to={`/?tag=${encodeURI(el)}`}>{`#${el}`}</Link>
+                      }
+                    </li>
+                  ))}
+                </ul>
               </div>
-            { (_repo && _theme) &&
-              <div className={style.postComment}>
-                <Utterances
-                  repo={_repo}
-                  theme={_theme}
-                />
+              <div
+                className={style.postBody}
+                dangerouslySetInnerHTML={{ __html: post.html }}
+              >
               </div>
-            }
-            </ContentLayout>
-            { (prevNode || nextNode) &&
-              <div className={style.postFooterWrap}>
-                <div className={style.postFooter}>
-                  <ul>
-                    <PrevPost/>
-                    <NextPost/>
-                  </ul>
-                </div>
+            </div>
+          { (_repo && _theme) &&
+            <div className={style.postComment}>
+              <Utterances
+                repo={_repo}
+                theme={_theme}
+              />
+            </div>
+          }
+          </ContentLayout>
+          { (prevNode || nextNode) &&
+            <div className={style.postFooterWrap}>
+              <div className={style.postFooter}>
+                <ul>
+                  <PrevPost/>
+                  <NextPost/>
+                </ul>
               </div>
-            }
-            <Footer data={data}/>
-          </VerticalLayout>
-        }
-      />
+            </div>
+          }
+          <Footer data={data}/>
+        </VerticalLayout>
+      </div>
     </div>
   );
 }

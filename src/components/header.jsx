@@ -34,7 +34,7 @@ const Header = ({ location, data }) => {
   let headerClass = !theme ? style.header : style.headerDark;
   if(mNav) headerClass += ` ${style.show}`;
   return (
-    <header className={headerClass}>
+    <div className={headerClass}>
       <div className={style.headerControl}>
         <Link
           to={page === 'portfolio' ? '/portfolio' : '/'}
@@ -135,7 +135,7 @@ const Header = ({ location, data }) => {
           </div>
         </nav>
       </div>
-    </header>
+    </div>
   );
 }
 

@@ -7,31 +7,45 @@
     display: flex;
     flex-direction: column;
     color: reverseColor($color);
+    overflow: hidden;
     .profile-intro {
-      @include mobile { flex-wrap: wrap; }
+      @include mobile { flex-direction: column; }
       width: 100%;
       display: flex;
       .profile-image {
-        @include mobile { width: 10em; }
-        width: 12em;
-        margin-right: 30px;
-        img {
-          width: 100%;
-          border-radius: $BORDER_RADIUS;
+        width: 10em;
+        .ratio {
+          padding-top: 100%;
+          position: relative;
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: $BORDER_RADIUS;
+          }
         }
       }
-      .profile-text {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        h1 {
-          font-size: 2.5em;
-          word-break: keep-all;
-          margin-bottom: 0.5em;
+      .profile-info {
+        @include mobile {
+          width: 100%;
+          margin: 0;
         }
-        h3 {
-          font-weight: 400;
+        margin-left: 30px;
+        width: calc(100% - 10em);
+        .profile-text {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+          }
+          h3 {
+            font-weight: 400;
+          }
         }
       }
     }
