@@ -47,7 +47,7 @@ tags: ['Project']
 
 책에는 socket.io 를 이용한 채팅 앱 만드는 예제가 있었는데 이걸 응용하면 서비스를 구현하기에 충분하다고 생각했고, 프론트엔드 프레임워크까지는 배울 시간이 충분치 않았기에 최종적으로 선정된 기술 스택은
 
-`Node.js` `Socket.io` `Express.js` `Vanilla JavaScript`
+`Node.js` `Socket.io` `Express.js` `VanillaJS`
 
 가 되었다.
 

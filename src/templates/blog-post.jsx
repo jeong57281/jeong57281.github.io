@@ -27,29 +27,13 @@ const BlogPost = ({ location, data }) => {
   const postIndex = postDataList.findIndex(postData => postData.id === markdownRemark.id);
   const prevNode = postIndex > 0 ? postDataList[postIndex-1] : undefined;
   const nextNode = postIndex  < postDataList.length-1 ? postDataList[postIndex+1] : undefined;
-  const PrevPost = () => {
-    if(!prevNode) return <></>;
-    return (
-      <li>
-        <PostItem tag={tag} node={prevNode}/>
-      </li>
-    );
-  };
-  const NextPost = () => {
-    if(!nextNode) return <></>;
-    return (
-      <li>
-        <PostItem tag={tag} node={nextNode}/>
-      </li>
-    );
-  };
   // dark mode
   const { theme } = useContext(ThemeContext);
   // create title tag id
   const titleId = markdownRemark.id.replaceAll(/[0-9\-]/g, '');
   return (
     <div className={!theme ? style.post : style.postDark}>
-      <div className={style.aside}>
+      <aside className={style.aside}>
         <div className={style.postToc}>
           <Toc
             html={post.tableOfContents}
@@ -57,8 +41,8 @@ const BlogPost = ({ location, data }) => {
             titleId={titleId}
           />
         </div>
-      </div>
-      <div className={style.section}>
+      </aside>
+      <section className={style.section}>
         <VerticalLayout>
           <ContentLayout>
             <div className={style.postWrap}>
@@ -94,15 +78,23 @@ const BlogPost = ({ location, data }) => {
             <div className={style.postFooterWrap}>
               <div className={style.postFooter}>
                 <ul>
-                  <PrevPost/>
-                  <NextPost/>
+                  { prevNode && 
+                    <li>
+                      <PostItem tag={tag} node={prevNode}/>
+                    </li>
+                  }
+                  { nextNode && 
+                    <li>
+                      <PostItem tag={tag} node={nextNode}/>
+                    </li>
+                  }
                 </ul>
               </div>
             </div>
           }
           <Footer data={data}/>
         </VerticalLayout>
-      </div>
+      </section>
     </div>
   );
 }

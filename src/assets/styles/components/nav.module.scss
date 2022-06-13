@@ -4,7 +4,7 @@
   @include tablet { display: none; }
   height: 100%;
   border-right: $BORDER_WIDTH solid lightColor($color);
-  transition: border-color 0.5s;
+  transition: border-color ease 0.5s;
   .small {
     width: 60px;
     height: 100%;

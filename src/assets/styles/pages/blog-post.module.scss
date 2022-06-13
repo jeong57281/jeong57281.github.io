@@ -15,7 +15,7 @@
     }
   }
   .section {
-    @include mobile { width: 100%; }
+    @include tablet { width: 100%; }
     width: calc(100% - 302px);
     height: 100%;
     .post-wrap {
