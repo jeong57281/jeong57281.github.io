@@ -78,7 +78,7 @@
     .disabled {
       pointer-events: none;
       a {
-        color: darkColor($color);
+        color: lightColor($color);
       }
     }
   }

@@ -4,6 +4,9 @@ import { ThemeContext } from "contexts/theme";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet-async";
 import * as style from "assets/styles/pages/404.module.scss";
+import VerticalLayout from "layouts/vertical-layout";
+import ContentLayout from "layouts/content-layout";
+import Footer from "components/footer";
 
 const NotFoundPage = ({ data }) => {
   // dark mode
@@ -11,16 +14,16 @@ const NotFoundPage = ({ data }) => {
   // for title
   const { nickname } = data.site.siteMetadata;
   return (
-    <div className={!theme ? style.notFound : style.notFoundDark}>
+    <VerticalLayout>
       <Helmet title={`${nickname}'s blog`}/>
-      <div className={style.notFoundBody}>
-        <h1>404</h1>
-        <p>Page Not Found</p>
-        <Link to="/">
-          home
-        </Link>
-      </div>
-    </div>
+      <ContentLayout>
+        <div className={!theme ? style.notFound : style.notFoundDark}>
+          <h1>404</h1>
+          <p>Page Not Found</p>
+        </div>
+      </ContentLayout>
+      <Footer data={data}/>
+    </VerticalLayout>
   );
 }
 
@@ -29,6 +32,10 @@ export const query = graphql`
     site {
       siteMetadata {
         nickname
+        github
+        instagram
+        gmail
+        blog
       }
     }
   }

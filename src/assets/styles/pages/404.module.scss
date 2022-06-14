@@ -1,35 +1,21 @@
 @import "../libs/";
 
 @mixin not-found($color: $LIGHT_COLOR) {
-  @include flex-middle;
-  height: 100%;
-  .not-found-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h1, p, a {
-      color: darkColor($color);
-    }
-    h1 {
-      font-size: 8em;
-      line-height: 1;
-      border-bottom: $BORDER_WIDTH solid darkColor($color);
-    }
-    p {
-      font-size: 2em;
-      line-height: 2;
-      font-weight: bolder;
-    }
-    a {
-      font-size: 1.2em;
-      color: reverseColor($color);
-      border: $BORDER_WIDTH solid reverseColor($color);
-      border-radius: $BORDER_RADIUS;
-      transition: background-color ease 0.5s;
-      text-decoration: none;
-      padding: 6px 10px;
-      font-weight: bold;
-    }
+  height: calc(var(--vh, 1vh) * 100 - 122px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1, p, a {
+    color: darkColor($color);
+  }
+  h1 {
+    font-size: 8em;
+    line-height: 1;
+  }
+  p {
+    font-size: 1.7em;
+    font-weight: bolder;
   }
 }
 
