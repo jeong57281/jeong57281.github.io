@@ -1,6 +1,7 @@
 @import "../libs/";
 
 @mixin intro($color: $LIGHT_COLOR) {
+  h1, h3, p { word-break: keep-all; }
   .profile {
     @include mobile { padding-top: 30px; }
     padding-top: 90px;
