@@ -1,6 +1,7 @@
 @import "../libs/";
 
 @mixin duce($color: $LIGHT_COLOR) {
+  @include mobile { margin-bottom: 30px; }
   color: reverseColor($color);
   font-weight: 200;
   margin-bottom: 90px;

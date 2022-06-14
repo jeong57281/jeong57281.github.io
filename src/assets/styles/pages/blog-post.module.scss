@@ -120,6 +120,8 @@
     transition: border-color ease 0.5s;
     width: 100%;
     .post-footer {
+      @include tablet { padding: 30px 25px; }
+      @include mobile { padding: 30px 20px; }
       padding: 30px;
       display: flex;
       justify-content: center;

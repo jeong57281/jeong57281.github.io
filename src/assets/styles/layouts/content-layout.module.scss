@@ -6,6 +6,8 @@
   .wrapper-min-height {
     min-height: calc(var(--vh, 1vh) * 100 - 62px);
     .wrapper-padding {
+      @include tablet { padding: 30px 25px; }
+      @include mobile { padding: 30px 20px; }
       padding: 30px;
     }
   }
