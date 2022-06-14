@@ -3,9 +3,9 @@
 @mixin about($color: $LIGHT_COLOR) {
   height: 100%;
   .goto-portfolio {
-    @include mobile { margin: 30px 0; }
+    @include mobile { margin: 30px 0 0 0; }
     width: 100%;
-    margin: 30px 0 90px 0;
+    margin: 30px 0 60px 0;
     display: flex;
     a {
       display: flex;

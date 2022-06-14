@@ -1,10 +1,10 @@
 @import "../libs/";
 
 @mixin duce($color: $LIGHT_COLOR) {
-  @include mobile { margin-bottom: 30px; }
+  @include mobile { margin-bottom: 0; }
   color: reverseColor($color);
   font-weight: 200;
-  margin-bottom: 90px;
+  margin-bottom: 60px;
   overflow: hidden;
   h1, h2, p, a { word-break: keep-all; }
   .skill {

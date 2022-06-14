@@ -3,12 +3,10 @@ import { Link, graphql } from "gatsby";
 import { ThemeContext } from "contexts/theme";
 import * as style from "assets/styles/pages/blog-post.module.scss";
 import Toc from "components/toc";
-import Footer from "components/footer";
 import Utterances from "components/Utterances";
 import get from "lodash/get";
 import PostItem from "components/post-item";
 import ContentLayout from "layouts/content-layout";
-import VerticalLayout from "layouts/vertical-layout";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement();
 
@@ -32,7 +30,7 @@ const BlogPost = ({ location, data }) => {
   // create title tag id
   const titleId = markdownRemark.id.replaceAll(/[0-9\-]/g, '');
   return (
-    <div className={!theme ? style.post : style.postDark}>
+    <section className={!theme ? style.post : style.postDark}>
       <aside className={style.aside}>
         <div className={style.postToc}>
           <Toc
@@ -42,60 +40,58 @@ const BlogPost = ({ location, data }) => {
           />
         </div>
       </aside>
-      <section className={style.section}>
-        <VerticalLayout>
-          <ContentLayout>
-            <div className={style.postWrap}>
-              <div className={style.postHead}>
-                <h1 id={titleId}>{markdownRemark.frontmatter.title}</h1>
-                <i>{`Posted on ${markdownRemark.frontmatter.date}`}</i>
-                <ul className={style.postTags}>
-                  {markdownRemark.frontmatter.tags.map((el, idx) => (
-                    <li key={idx}>
-                      { el &&
-                        <Link to={`/?tag=${encodeURI(el)}`}>{`#${el}`}</Link>
-                      }
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div
-                className={style.postBody}
-                dangerouslySetInnerHTML={{ __html: post.html }}
-              >
-              </div>
+      <article className={style.article}>
+        <ContentLayout data={data}>
+          <div className={style.postWrap}>
+            <div className={style.postHead}>
+              <h1 id={titleId}>{markdownRemark.frontmatter.title}</h1>
+              <i>{`Posted on ${markdownRemark.frontmatter.date}`}</i>
+              <ul className={style.postTags}>
+                {markdownRemark.frontmatter.tags.map((el, idx) => (
+                  <li key={idx}>
+                    { el &&
+                      <Link to={`/?tag=${encodeURI(el)}`}>
+                        {`#${el}`}
+                      </Link>
+                    }
+                  </li>
+                ))}
+              </ul>
             </div>
+            <div
+              className={style.postBody}
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+          </div>
           { (_repo && _theme) &&
             <div className={style.postComment}>
+              <h2>Comments</h2>
               <Utterances
                 repo={_repo}
                 theme={_theme}
               />
             </div>
           }
-          </ContentLayout>
           { (prevNode || nextNode) &&
-            <div className={style.postFooterWrap}>
-              <div className={style.postFooter}>
-                <ul>
-                  { prevNode && 
-                    <li>
-                      <PostItem tag={tag} node={prevNode}/>
-                    </li>
-                  }
-                  { nextNode && 
-                    <li>
-                      <PostItem tag={tag} node={nextNode}/>
-                    </li>
-                  }
-                </ul>
-              </div>
+            <div className={style.postFooter}>
+              <h2>Other Posts</h2>
+              <ul>
+                { prevNode &&
+                  <li>
+                    <PostItem tag={tag} node={prevNode}/>
+                  </li>
+                }
+                { nextNode &&
+                  <li>
+                    <PostItem tag={tag} node={nextNode}/>
+                  </li>
+                }
+              </ul>
             </div>
           }
-          <Footer data={data}/>
-        </VerticalLayout>
-      </section>
-    </div>
+        </ContentLayout>
+      </article>
+    </section>
   );
 }
 

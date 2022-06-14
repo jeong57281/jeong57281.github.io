@@ -28,20 +28,20 @@ const Index = ({ children, location, data }) => {
       <HelmetProvider>
         { ready &&
           <div className={!theme ? style.layout: style.layoutDark}>
-            <header className={style.header}>
+            <div className={style.header}>
               <Header location={location} data={data}/>
-            </header>
+            </div>
             <main className={style.main}>
-              <nav className={style.nav}>
+              <div className={style.nav}>
                 <Nav
                   location={location}
                   minimize={minimize}
                   setMinimize={setMinimize}
                 />
-              </nav>
-              <section className={`${style.section} ${minimize ? style.small : style.big}`}>
+              </div>
+              <div className={`${style.section} ${minimize ? style.small : style.big}`}>
                 {children}
-              </section>
+              </div>
             </main>
           </div>
         }

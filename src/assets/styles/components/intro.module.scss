@@ -3,8 +3,8 @@
 @mixin intro($color: $LIGHT_COLOR) {
   h1, h3, p { word-break: keep-all; }
   .profile {
-    @include mobile { padding-top: 30px; }
-    padding-top: 90px;
+    @include mobile { padding-top: 0; }
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
     color: reverseColor($color);

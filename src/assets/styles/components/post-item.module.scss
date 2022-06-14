@@ -3,7 +3,6 @@
 @mixin post-item($color: $LIGHT_COLOR) {
   @include mobile { flex-direction: column; }
   text-decoration: none;
-  padding: 15px 0;
   display: flex;
   &:hover {
     .item .image .ratio img {

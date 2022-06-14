@@ -3,6 +3,7 @@
 @mixin post($color: $LIGHT_COLOR) {
   height: 100%;
   display: flex;
+  color: reverseColor($color);
   .aside {
     height: 100%;
     .post-toc {
@@ -14,14 +15,12 @@
       transition: border-color ease 0.5s;
     }
   }
-  .section {
+  .article {
     @include tablet { width: 100%; }
     width: calc(100% - 302px);
     height: 100%;
     .post-wrap {
       overflow: hidden;
-      padding: 30px 0;
-      color: reverseColor($color);
       .post-head {
         h1 {
           word-break: keep-all;
@@ -116,34 +115,39 @@
       }
     }
   }
-  .post-footer-wrap {
-    border-top: $BORDER_WIDTH solid lightColor($color);
-    transition: border-color ease 0.5s;
+  .post-comment {
     width: 100%;
-    .post-footer {
-      @include tablet { padding: 30px 25px; }
-      @include mobile { padding: 30px 20px; }
-      padding: 30px;
+    h2 {
+      border-bottom: $BORDER_WIDTH solid reverseColor($color);
+      margin: 0.75em 0;
+    }
+  }
+  .post-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > h2 {
+      width: 100%;
+      border-bottom: $BORDER_WIDTH solid reverseColor($color);
+      margin: 0.75em 0;
+    }
+    ul {
+      width: 100%;
+      max-width: 60em;
       display: flex;
-      justify-content: center;
-      ul {
-        width: 100%;
-        max-width: 60em;
-        display: flex;
-        flex-direction: column;
-        li {
-          list-style: none;
-          border-bottom: $BORDER_WIDTH solid lightColor($color);
-          transition: border-color ease 0.5s;
-          &:last-child {
-            border: 0;
-          }
+      flex-direction: column;
+      li {
+        border-bottom: $BORDER_WIDTH solid lightColor($color);
+        transition: border-color ease 0.5s;
+        padding: 15px 0;
+        list-style: none;
+        &:last-child {
+          border: 0;
+          padding-bottom: 0;
         }
       }
     }
-  }
-  .post-comment {
-    width: 100%;
   }
 }
 

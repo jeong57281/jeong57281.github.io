@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 import { Link, graphql } from "gatsby";
 import { ThemeContext } from "contexts/theme";
 import * as style from "assets/styles/pages/index.module.scss";
-import Footer from "components/footer";
 import ContentLayout from "layouts/content-layout";
-import VerticalLayout from "layouts/vertical-layout";
 import PostItem from "components/post-item";
 import { Helmet } from "react-helmet-async";
 
@@ -109,7 +107,7 @@ const Index = ({ location, data }) => {
   // for title
   const { nickname } = data.site.siteMetadata;
   return (
-    <div className={!theme ? style.blog : style.blogDark}>
+    <section className={!theme ? style.blog : style.blogDark}>
       <Helmet title={`${nickname}'s blog`}/>
       <aside className={style.aside}>
         <div className={style.tag}>
@@ -142,24 +140,21 @@ const Index = ({ location, data }) => {
         </div>
       </aside>
       <article className={style.article}>
-        <VerticalLayout>
-          <ContentLayout>
-            <ul className={style.postList}>
-              {posts.map((node, idx) => {
-                return (
-                  <li key={idx}>
-                    <PostItem tag={tag} node={node}/>
-                  </li>
-                );
-              })}
-            </ul>
-            <Pagination/>
-            <MPagination/>
-          </ContentLayout>
-          <Footer data={data}/>
-        </VerticalLayout>
+        <ContentLayout data={data}>
+          <ul className={style.postList}>
+            {posts.map((node, idx) => {
+              return (
+                <li key={idx}>
+                  <PostItem tag={tag} node={node}/>
+                </li>
+              );
+            })}
+          </ul>
+          <Pagination/>
+          <MPagination/>
+        </ContentLayout>
       </article>
-    </div>
+    </section>
   );
 }
 
