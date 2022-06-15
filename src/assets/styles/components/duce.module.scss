@@ -12,7 +12,7 @@
     flex-direction: column;
     margin-top: 30px;
     h1 {
-      font-size: 1.8em;
+      font-size: 2em;
     }
     ul {
       display: flex;
@@ -32,7 +32,7 @@
   .project {
     margin-top: 30px;
     h1 {
-      font-size: 1.8em;
+      font-size: 2em;
     }
     .project-main {
       @include mobile { flex-direction: column; }
@@ -100,7 +100,7 @@
   .education {
     margin-top: 30px;
     h1 {
-      font-size: 1.8em;
+      font-size: 2em;
     }
     ul {
       padding-left: 20px;

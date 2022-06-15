@@ -82,8 +82,7 @@ const Header = ({ location, data }) => {
                 html={html}
                 title={markdownRemark.frontmatter.title}
                 titleId={markdownRemark.id.replaceAll(/[0-9\-]/g, '')}
-              >
-              </Toc>
+              />
             }
             { group &&
               <div className={style.blogTags}>

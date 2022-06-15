@@ -65,7 +65,7 @@ const BlogPost = ({ location, data }) => {
           </div>
           { (_repo && _theme) &&
             <div className={style.postComment}>
-              <h2>Comments</h2>
+              <h1>Comments</h1>
               <Utterances
                 repo={_repo}
                 theme={_theme}
@@ -74,7 +74,7 @@ const BlogPost = ({ location, data }) => {
           }
           { (prevNode || nextNode) &&
             <div className={style.postFooter}>
-              <h2>Other Posts</h2>
+              <h1>Other Posts</h1>
               <ul>
                 { prevNode &&
                   <li>

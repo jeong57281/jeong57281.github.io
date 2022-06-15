@@ -20,7 +20,7 @@ const About = ({ data }) => {
         <div className={style.gotoPortfolio}>
           <Link to='/portfolio'>
             show more
-            <Down />
+            <Down/>
           </Link>
         </div>
       </ContentLayout>
