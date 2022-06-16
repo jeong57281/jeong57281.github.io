@@ -12,14 +12,14 @@
   background: url(../../img/overlay.png), $color;
   transition: background-color ease 0.5s;
   .header {
-    height: 60px;
+    height: $HEADER_HEIGHT;
     border-bottom: $BORDER_WIDTH solid lightColor($color);
     box-sizing: border-box;
     transition: border-color ease 0.5s;
   }
   .main {
     width: 100%;
-    height: calc(100% - 60px);
+    height: calc(100% - $HEADER_HEIGHT);
     display: flex;
     .nav {
       height: 100%;
@@ -30,12 +30,12 @@
     }
     .big {
       @include desktop {
-        width: calc(100% - 60px);
+        width: calc(100% - $SIDE_WIDTH_SMALL);
       }
     }
     .small {
       @include desktop {
-        width: calc(100% - 300px);
+        width: calc(100% - $SIDE_WIDTH);
       }
     }
   }

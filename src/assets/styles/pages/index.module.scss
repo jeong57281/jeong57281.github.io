@@ -8,7 +8,7 @@
     .tag {
       @include tablet { display: none; }
       @include hidden-scroll;
-      width: 300px;
+      width: $SIDE_WIDTH;
       height: 100%;
       border-right: $BORDER_WIDTH solid lightColor($color);
       box-sizing: border-box;
@@ -38,8 +38,8 @@
     }
   }
   .article {
-    @include desktop { width: calc(100% - 300px); }
-    width: 100%;
+    @include tablet { width: 100%; }
+    width: calc(100% - $SIDE_WIDTH);
     height: 100%;
     .post-list {
       @include mobile { margin-top: 0; }

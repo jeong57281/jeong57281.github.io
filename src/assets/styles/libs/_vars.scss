@@ -3,4 +3,11 @@ $BORDER_WIDTH: 2px;
 
 $DARK_COLOR: #262223;
 $LIGHT_COLOR: #DDC6B6;
-$MEDIUM_COLOR: mix($DARK_COLOR, $LIGHT_COLOR, 50%)
+$MEDIUM_COLOR: mix($DARK_COLOR, $LIGHT_COLOR, 50%);
+
+$breakpoint-tablet: 767px;
+$breakpoint-desktop: 1023px;
+
+$SIDE_WIDTH: 300px;
+$SIDE_WIDTH_SMALL: 60px;
+$HEADER_HEIGHT: 60px;

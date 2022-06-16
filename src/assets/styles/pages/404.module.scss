@@ -3,7 +3,7 @@
 @mixin not-found($color: $LIGHT_COLOR) {
   height: 100%;
   ._404 {
-    height: calc(var(--vh, 1vh) * 100 - 60px - 120px);
+    height: calc(var(--vh, 1vh) * 100 - $HEADER_HEIGHT - 120px);
     display: flex;
     flex-direction: column;
     align-items: center;
