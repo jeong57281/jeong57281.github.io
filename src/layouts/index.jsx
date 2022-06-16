@@ -39,7 +39,7 @@ const Index = ({ children, location, data }) => {
                   setMinimize={setMinimize}
                 />
               </div>
-              <div className={`${style.section} ${minimize ? style.small : style.big}`}>
+              <div className={`${style.section} ${minimize ? style.big : style.small}`}>
                 {children}
               </div>
             </main>

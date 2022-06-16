@@ -3,7 +3,7 @@
 @mixin layout($color: $LIGHT_COLOR) {
   @include custom-scroll($color);
   @include tablet { @include hidden-scroll; }
-  width: 100%;
+  width: calc(100% + 1px);
   height: 100%;
   display: flex;
   flex-direction: column;
