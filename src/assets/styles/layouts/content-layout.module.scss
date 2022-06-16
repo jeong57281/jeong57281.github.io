@@ -4,35 +4,35 @@
   @include tablet { @include hidden-scroll; }
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow-y: scroll;
   overflow-x: hidden;
   color: darkColor($color);
-  transition: color ease 0.5s;
+  border-color: lightColor($color);
+  transition: color ease 0.5s, border-color ease 0.5s;
   &::-webkit-scrollbar {
     width: 15px;
+  }
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-track {
+    border-left-width: $BORDER_WIDTH;
+    border-left-style: solid;
+    border-left-color: inherit;
   }
   &::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 0 10px;
   }
-  .border {
-    @include tablet { border: 0; } 
+  .max-width {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-right: $BORDER_WIDTH solid lightColor($color);
-    box-sizing: border-box;
-    transition: border-color ease 0.5s;
-    .max-width {
-      width: 100%;
-      max-width: 60em;
-      .min-height {
-        min-height: calc(var(--vh, 1vh) * 100 - $HEADER_HEIGHT);
-        .padding {
-          @include tablet { padding: 60px 25px; }
-          @include mobile { padding: 60px 20px; }
-          padding: 60px 30px;
-        }
+    max-width: 60em;
+    .min-height {
+      min-height: calc(var(--vh, 1vh) * 100 - $HEADER_HEIGHT);
+      .padding {
+        @include tablet { padding: 60px 25px; }
+        @include mobile { padding: 60px 20px; }
+        padding: 60px 30px;
       }
     }
   }
