@@ -39,15 +39,16 @@ $breakpoint-desktop: 1023px;
 @mixin custom-scroll($color) {
   @include desktop {
     &::-webkit-scrollbar {
-      width: 14px;
+      width: 16px;
     }
     &::-webkit-scrollbar-thumb {
       background: url(../../img/overlay.png), darkColor($color);
-      transition: background-color ease 0.5s;
+      border-left: $BORDER_WIDTH solid lightColor($color);
+      transition: ease 0.5s;
     }
     &::-webkit-scrollbar-track {
-      background: url(../../img/overlay.png), lightColor($color);
-      transition: background-color ease 0.5s;
+      border-left: $BORDER_WIDTH solid lightColor($color);
+      transition: 0.5s;
     }
   }
 }
