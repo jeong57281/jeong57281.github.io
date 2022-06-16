@@ -8,14 +8,16 @@ const ContentLayout = ({ children, data }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <div id="scroll" className={!theme ? style.layout : style.layoutDark}>
-      <div className={style.maxWidth}>
-        <div className={style.minHeight}>
-          <div className={style.padding}>
-            {children}
+      <div className={style.border}>
+        <div className={style.maxWidth}>
+          <div className={style.minHeight}>
+            <div className={style.padding}>
+              {children}
+            </div>
           </div>
         </div>
+        <Footer data={data}/>
       </div>
-      <Footer data={data}/>
     </div>
   );
 }

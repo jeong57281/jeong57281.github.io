@@ -8,6 +8,7 @@
   width: 100%;
   min-height: 200px;
   border-top: $BORDER_WIDTH solid lightColor($color);
+  box-sizing: border-box;
   transition: border-color ease 0.5s;
   color: reverseColor($color);
   h3 {

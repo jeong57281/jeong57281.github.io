@@ -36,23 +36,6 @@ $breakpoint-desktop: 1023px;
   }
 }
 
-@mixin custom-scroll($color) {
-  @include desktop {
-    &::-webkit-scrollbar {
-      width: 16px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: url(../../img/overlay.png), darkColor($color);
-      border-left: $BORDER_WIDTH solid lightColor($color);
-      transition: ease 0.5s;
-    }
-    &::-webkit-scrollbar-track {
-      border-left: $BORDER_WIDTH solid lightColor($color);
-      transition: 0.5s;
-    }
-  }
-}
-
 @mixin prevent-font-scaling {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;

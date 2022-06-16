@@ -3,7 +3,6 @@
 @mixin post($color: $LIGHT_COLOR) {
   height: 100%;
   display: flex;
-  color: reverseColor($color);
   .aside {
     height: 100%;
     .post-toc {
@@ -12,15 +11,17 @@
       width: 300px;
       height: 100%;
       border-right: $BORDER_WIDTH solid lightColor($color);
+      box-sizing: border-box;
       transition: border-color ease 0.5s;
     }
   }
   .article {
     @include tablet { width: 100%; }
-    width: calc(100% - 302px);
+    width: calc(100% - 300px);
     height: 100%;
     .post-wrap {
       overflow: hidden;
+      color: reverseColor($color);
       .post-head {
         h1 {
           word-break: keep-all;
@@ -117,6 +118,7 @@
   }
   .post-comment {
     width: 100%;
+    color: reverseColor($color);
     h1 {
       font-size: 2em;
       border-bottom: $BORDER_WIDTH solid reverseColor($color);
@@ -128,6 +130,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: reverseColor($color);
     h1 {
       font-size: 2em;
       width: 100%;

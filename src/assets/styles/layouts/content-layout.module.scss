@@ -1,24 +1,37 @@
 @import "../libs";
 
 @mixin layout($color: $LIGHT_COLOR) {
-  @include custom-scroll($color);
   @include tablet { @include hidden-scroll; }
-  width: calc(100% + 1px);
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   overflow-y: scroll;
   overflow-x: hidden;
-  .max-width {
+  color: darkColor($color);
+  transition: color ease 0.5s;
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+  &::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0 10px;
+  }
+  .border {
     width: 100%;
-    max-width: 60em;
-    .min-height {
-      min-height: calc(var(--vh, 1vh) * 100 - 62px);
-      .padding {
-        @include tablet { padding: 60px 25px; }
-        @include mobile { padding: 60px 20px; }
-        padding: 60px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: $BORDER_WIDTH solid lightColor($color);
+    box-sizing: border-box;
+    transition: border-color ease 0.5s;
+    .max-width {
+      width: 100%;
+      max-width: 60em;
+      .min-height {
+        min-height: calc(var(--vh, 1vh) * 100 - 60px);
+        .padding {
+          @include tablet { padding: 60px 25px; }
+          @include mobile { padding: 60px 20px; }
+          padding: 60px 30px;
+        }
       }
     }
   }

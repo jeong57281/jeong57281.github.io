@@ -22,7 +22,7 @@ const Nav = ({ location, minimize, setMinimize }) => {
     }
   }, [location]);
   return (
-    <div className={!theme ? style.nav : style.navDark}>
+    <nav className={!theme ? style.nav : style.navDark}>
       <div className={!minimize ? style.big : style.small}>
         <ul>
           <li>
@@ -61,7 +61,7 @@ const Nav = ({ location, minimize, setMinimize }) => {
           </button>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 
