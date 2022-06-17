@@ -7,6 +7,7 @@ import Utterances from "components/Utterances";
 import get from "lodash/get";
 import PostItem from "components/post-item";
 import ContentLayout from "layouts/content-layout";
+import { Helmet } from "react-helmet-async";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement();
 
@@ -31,6 +32,7 @@ const BlogPost = ({ location, data }) => {
   const titleId = markdownRemark.id.replaceAll(/[0-9\-]/g, '');
   return (
     <section className={!theme ? style.post : style.postDark}>
+      <Helmet title={markdownRemark.frontmatter.title}/>
       <aside className={style.aside}>
         <div className={style.postToc}>
           <Toc
@@ -74,7 +76,10 @@ const BlogPost = ({ location, data }) => {
           }
           { (prevNode || nextNode) &&
             <div className={style.postFooter}>
-              <h1>Other Posts</h1>
+              <h1>
+                Other Posts
+                <span>{tag ? ` - #${tag}` : ' - All'}</span>
+              </h1>
               <ul>
                 { prevNode &&
                   <li>

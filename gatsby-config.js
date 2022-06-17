@@ -153,6 +153,13 @@ module.exports = {
             options: {
               elements: ['h1', 'h2', 'h3']
             }
+          },
+          {
+            resolve: 'gatsby-remark-emoji',
+            options: {
+              emojiConversion: 'shortnameToUnicode',
+              ascii: false
+            }
           }
         ]
       }

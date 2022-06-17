@@ -2,7 +2,7 @@
 title: 'food filter 프로젝트' 
 titleImage: '/img/thumbnail/1.jpg'
 date: '2021-07-12'
-tags: ['Project']
+tags: ['Project', 'Vue']
 ---
 
 ## ~프로젝트가 결정되기 까지

@@ -34,7 +34,7 @@
         .post-tags {
           display: flex;
           flex-wrap: wrap;
-          margin-top: 5px;
+          margin-top: 10px;
           list-style: none;
           li {
             margin: 0 5px 10px 0;
@@ -51,6 +51,8 @@
       .post-body {
         deckgo-highlight-code {
           margin: 0.5em;
+          box-shadow: none;
+          margin-bottom: 1.5em;
         }
         margin-top: 4em;
         h1, h2 {
@@ -81,6 +83,13 @@
         ul {
           padding-left: 20px;
           margin-bottom: 1.5em;
+        }
+        ol {
+          padding-left: 20px;
+          margin-bottom: 1.5em;
+          p {
+            margin-bottom: 0;
+          }
         }
         a {
           color: $MEDIUM_COLOR;
@@ -136,6 +145,9 @@
       width: 100%;
       border-bottom: $BORDER_WIDTH solid reverseColor($color);
       margin: 0.75em 0;
+      span {
+        color: $MEDIUM_COLOR;
+      }
     }
     ul {
       width: 100%;
