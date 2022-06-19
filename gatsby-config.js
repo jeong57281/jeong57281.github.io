@@ -99,8 +99,8 @@ module.exports = {
             href: 'https://github.com/jeong57281/jeong57281.github.io'
           },
           {
-            name: 'Gatsby 블로그 제작기',
-            href: 'https://jeong57281.github.io/post/Gatsby%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%A0%9C%EC%9E%91%EA%B8%B0/'
+            name: 'Gatsby 기술 블로그 제작기',
+            href: 'https://jeong57281.github.io/post/Gatsby-%EA%B8%B0%EC%88%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%9C%EC%9E%91%EA%B8%B0/'
           }
         ]
       }
