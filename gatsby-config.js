@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     name: 'JeongHyeon Park',
     nickname: 'ppwag',
-    description: '안녕하세요. 프론트엔드 개발자를 꿈꾸는 대학생 박정현입니다.',
+    description: '안녕하세요. 풀스택 개발자를 꿈꾸는 대학생 박정현입니다.',
     about: '2021년 캡스톤 디자인 프로젝트를 진행하며 우연히 알게 된 JavaScript 의 범용성에 감탄하여 계속해서 공부하는 중입니다.',
     skills: [
       {
@@ -88,6 +88,21 @@ module.exports = {
             href: 'https://jeong57281.github.io/post/knu-lms-scheduler'
           }
         ]
+      },
+      {
+        image: '/img/project/blog.png',
+        title: '기술 블로그',
+        description: 'Gatsby 를 이용해 개발한, 포트폴리오 용도로도 사용 가능한 기술 블로그 입니다.',
+        links: [
+          {
+            name: 'Github Repository',
+            href: 'https://github.com/jeong57281/jeong57281.github.io'
+          },
+          {
+            name: 'Gatsby 블로그 제작기',
+            href: 'https://jeong57281.github.io/post/Gatsby%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%A0%9C%EC%9E%91%EA%B8%B0/'
+          }
+        ]
       }
     ],
     educations: [
@@ -97,7 +112,7 @@ module.exports = {
       }
     ],
     postPerPage: 4,
-    profile: '/img/profile/profile.jpg',
+    profile: '/img/profile/profile.jpeg',
     github: 'https://github.com/jeong57281',
     instagram: 'https://www.instagram.com/j__ghy__/',
     gmail: 'jeong5728@gmail.com',
