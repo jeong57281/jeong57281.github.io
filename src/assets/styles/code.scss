@@ -53,8 +53,8 @@
   margin: 0;
   padding: 0;
   overflow: initial;
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
+  float: left;
+  min-width: calc(100% - 2.8em);
 }
 
 .gatsby-highlight pre[class*="language-"].line-numbers {
