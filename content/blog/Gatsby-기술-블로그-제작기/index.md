@@ -58,15 +58,7 @@ Gatsby 는 정적 사이트 생성기고~ /src/pages 폴더 안의 파일명이 
 3. 항목이 없을 때에도 footer 가 보이지 않도록 최소 높이를 지정한다.
 4. padding
 
-![7](./7.png)
-
-<p style="text-align:center">이해를 돕기 위한 (발)그림이다.</p>
-
-항상 footer 와 함께 스크롤 되어야하는 내용 `contents` 들을 만든 레이아웃으로 감싸 사용한다.
-
-```html
-<!-- content-layout.jsx -->
-
+```html{5,9}:title=content-layout.jsx
 <div className={style.layout} id="scroll">
   <div className={style.maxWidth}>
     <div className={style.minHeight}>
@@ -77,23 +69,25 @@ Gatsby 는 정적 사이트 생성기고~ /src/pages 폴더 안의 파일명이 
   </div>
   <Footer data={data}/>
 </div>
+```
 
-<!-- pages.jsx -->
-
+```html:title=pages.jsx
 <ContentLayout>
   <!-- 내용 -->
 </ContentLayout>
 ```
 
+항상 footer 와 함께 스크롤 되어야하는 내용 `contents` 들을 만든 레이아웃으로 감싸 사용한다.
 
 ## CSS Troubleshooting
 
-블로그를 만들면서 CSS 가 이렇게 어려운 것인지 몰랐다. 그 중에서도 특히 **word-break** 속성과 관련된 문제는 CSS 기초지식이 부족했기 때문인지 원인 찾기가 정말 어려웠다.
+블로그를 만들며 필요할 때 마다 구글에서 고민없이 가져다 쓰던 CSS 때문에 엄청 고생했다. 특히 **word-break** 속성 때문에 생긴 문제는 원인 찾기가 정말 어려웠다.
 
-텍스트 태그의 word-break 기본 속성값은 normal 이다. normal 은 영어의 경우 줄바꿈이 단어 단위로 일어나게 되는데 이 기본 속성이 문제를 일으켰다.
+> 줄어들지 않는 width
 
-```css
+```css:title=scss
 section {
+  width: 100%;
   display: flex;
   aside {
     width: 300px;
@@ -104,31 +98,33 @@ section {
 }
 ```
 
-내 블로그는 **고정 요소**와 **가변 요소**가 함께 사용되기 때문에 `aside` 와 `article` 의 경우 위와 같은 방법을 사용했다.
+내 블로그는 고정 요소 `aside` 와 가변 요소 `article` 가 함께 가로로 배치되어야 하기 때문에, flexible box 인 `section` 에 의해 가변 요소가 줄어드는 원리를 이용했다.
 
-그랬더니 만약 자식 요소에 줄바꿈이 없는 매우 긴 영어 문자열이 들어올 경우 가로 요소의 너비가 오버플로 되는 것이었다.
+그런데 `article` 자식으로 매우 긴 문자열이 들어오니 크기가 유연하게 변하질 않았다. 별 거 아닐 줄 알았던 문제가 두시간 넘게 윈도우 크기를 조절하면서 붙잡아도 알수가 없어서, 결국 다시 하나씩 만들어보며 원인을 찾기 시작했다. 
 
-display:flex 에 의해 가변 요소가 줄어들었던 것이지 width 는 최대 100% 만큼 늘어날 수 있기 때문이었다.
+![5](./5.png)
 
-```css
-* {
-  word-break: break-all;
-}
-```
+<p style="text-align:center">(다래끼)</p>
 
-break-all 속성을 적용해주면 문제가 해결되지만 영어 가독성이 너무 떨어지게 된다.
+이유는 텍스트 태그 word-break 속성의 default 값 normal 때문이었다. normal 은 영어의 경우 줄바꿈이 단어 단위로 일어나기 때문에 띄어쓰기가 없으면 줄바꿈이 일이나지 않아 너비가 줄어들지 않는다.
 
-```css
+그런데 왜 overflow 되지 않고 부모 요소도 함께 늘어날까;;
+
+또 다시 윈도우 크기를 늘리고 줄이면서 이유를 찾아봤는데, 특정 크기에 다다르면 너비가 줄어들지 않는 것을 발견했다. 그 특정 크기는 부모 요소의 너비와 같았다.
+
+flexible box 에 의해 줄어든 `article` 은 늘어날 수 있는 최대 너비가 100% 임을 잊고 있었고, 고정 요소 `aside` 의 크기까지 더해 부모의 가로 크기를 넘어섰던 것이었다.
+
+> 해결 방법
+
+```css:title=css
 article {
   width: calc(100% - 300px);
 }
 ```
 
-calc 를 이용해서 해결했다. (처음부터 calc 를 썻으면 문제가 없었겠지만 width: 100% 이 더 우아해 보여서...)
+break-all 속성을 주어 글자 단위로 줄바꿈되도록 하는 방법은 영어 가독성이 너무 떨어지기 때문에 calc 를 이용해서 해결했다. (처음부터 calc 를 쓰지 않은 이유? width: 100% 이 더 우아해 보여서...)
 
-![5](./5.png)
 
-<p style="text-align:center">(다래끼)</p>
 
 ## 마무리
 

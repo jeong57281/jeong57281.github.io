@@ -4,7 +4,6 @@ import Nav from "components/nav";
 import { ThemeContext } from "contexts/theme";
 import { HelmetProvider } from 'react-helmet-async';
 import * as style from "assets/styles/layouts/index.module.scss";
-import "assets/styles/global.scss";
 
 const Index = ({ children, location, data }) => {
   const [ready, setReady] = useState(false); // conditional rendering
