@@ -118,8 +118,8 @@
     ul {
       list-style-position: inside;
       li {
-        h2 {
-          display: inline;
+        .text-wrap {
+          display: inline-grid;
         }
       }
     }

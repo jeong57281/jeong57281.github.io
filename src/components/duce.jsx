@@ -71,8 +71,10 @@ const Duce = ({ data }) => {
               const { name, description } = el;
               return (
                 <li key={idx}>
-                  <h2>{name}</h2>
-                  <p>{description}</p>
+                  <div className={style.textWrap}>
+                    <h2>{name}</h2>
+                    <p>{description}</p>
+                  </div>
                 </li>
               )
             })}
