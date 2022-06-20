@@ -39,7 +39,7 @@ tags: ['Project', 'React']
 
 ![3](./3.png)
 
-설계상 footer 는 페이지가 달라질 때 마다 새로 렌더링 되기 때문에, 방문자를 간편하게 체크할 수 있는 [hits](https://hits.seeyoufarm.com) 를 사용할 수 없었다. :unamused:
+그래서 설계상 footer 는 페이지가 달라질 때 마다 새로 렌더링 되기 때문에, 방문자를 간편하게 체크할 수 있는 [hits](https://hits.seeyoufarm.com) 를 사용할 수 없었다. :unamused:
 
 ### gatsby-plugin-layout
 

@@ -78,8 +78,8 @@ axios.get('/api/maps', {
 
 CI/CD 툴로 사용하기 편리한 git actions 을 사용하였는데
 
-* CI(Continuous Integration) 지속적 통합 : 개발자가 나 혼자라 겪어볼 수 없었다.
-* CD(Continuous Delivery & Deployment) 지속적 전달 & 배포 : 배포를 자동화하고 slack 으로 알림이 가도록 설정했다.
+* **CI(Continuous Integration) 지속적 통합** : 개발자가 나 혼자라 겪어볼 수 없었다.
+* **CD(Continuous Delivery & Deployment) 지속적 전달 & 배포** : 배포를 자동화하고 slack 으로 알림이 가도록 설정했다.
 
 project/
 <br/>┝ frontend/

@@ -82,7 +82,20 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
+            h2,
             p {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+            }
+            h2 {
+              @include mobile { -webkit-line-clamp: unset; }
+              -webkit-line-clamp: 1;
+            }
+            p {
+              @include mobile { -webkit-line-clamp: unset; }
+              -webkit-line-clamp: 3;
               text-align: center;
             }
             ul {
@@ -103,12 +116,10 @@
       font-size: 2em;
     }
     ul {
-      padding-left: 20px;
+      list-style-position: inside;
       li {
-        h3 {
-          font-weight: 400;
-          font-size: 1em;
-          margin-bottom: 5px;
+        h2 {
+          display: inline;
         }
       }
     }

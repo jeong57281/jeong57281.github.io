@@ -55,7 +55,7 @@ module.exports = {
         image: '/img/project/foodfilter.png',
         title: 'Food Filter',
         description: '여럿이 같은 화면에서 자신의 음식 종류 필터를 공유하여, 모두가 먹고 싶어하는 음식점의 위치를 검색할 수 있는 지도 웹 서비스 입니다.',
-        links: [
+        links: [ // up to 4
           {
             name: 'Github Repository',
             href: 'https://github.com/jeong57281/foodfilter-FE'

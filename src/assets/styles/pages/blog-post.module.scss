@@ -80,13 +80,15 @@
           padding: 1px 4px;
           font-size: 0.9em;
         }
-        ul {
-          padding-left: 20px;
+        ul,
+        ol {
+          list-style-position: inside;
           margin-bottom: 1.5em;
+          ::marker {
+            font-weight: bold;
+          }
         }
         ol {
-          padding-left: 20px;
-          margin-bottom: 1.5em;
           p {
             margin-bottom: 0;
           }

@@ -47,6 +47,7 @@ const Duce = ({ data }) => {
                       <ul>
                         {links && links.map((_el, idx) => {
                           const { name, href } = _el;
+                          if(idx >= 4) return <></>;
                           return (
                             <li key={idx}>
                               <a href={href} target="_blank">{name}</a>
