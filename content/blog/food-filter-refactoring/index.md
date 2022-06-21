@@ -64,7 +64,7 @@ food filter 프로젝트는 사실상 개발자가 나 혼자인 개인 웹 앱 
 
 api 개발이 진행되면 테스트해볼 수 있도록 서버에 배포한다. 프론트엔드 개발자는 dev server proxy 를 설정해, 요청이 서버가 배포되어있는 주소로 proxing 되도록하고 host 를 제외한 path 만을 이용해 http 요청한다. (실제 서버에 배포가 되면 현재 url 로 요청이 전송되고 `/api` 요청의 경우 nginx 에서 이를 reverse proxing 한다.)
 
-```js
+```js:title=.js
 // 예시
 axios.get('/api/maps', {
 })

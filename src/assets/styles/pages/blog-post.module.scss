@@ -5,6 +5,8 @@
   display: flex;
   .aside {
     height: 100%;
+    background: url(../../img/overlay.png), $color;
+    transition: background-color ease 0.5s;
     .post-toc {
       @include tablet { display: none; }
       @include hidden-scroll;
@@ -50,6 +52,22 @@
       }
       .post-body {
         margin-top: 4em;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+          code {
+            font-family: "AppleSDGothicNeo";
+            background: reverseColor($color);
+            color: $color;
+            border-radius: 7px;
+            padding: 1px 4px;
+            font-size: 0.9em;
+          }
+        }
         blockquote {
           border-left: 13px solid darkColor($color);
           transition: border-color ease 0.5s;
@@ -60,7 +78,8 @@
             margin-bottom: 0;
           }
         }
-        h1, h2 {
+        h1,
+        h2 {
           border-bottom: $BORDER_WIDTH solid reverseColor($color);
           margin: 0.75em 0;
         }
@@ -72,18 +91,9 @@
         }
         p {
           margin-bottom: 1.5em;
-          code {
-            font-family: "AppleSDGothicNeo";
-            background: reverseColor($color);
-            color: $color;
-            border-radius: 7px;
-            padding: 1px 4px;
-            font-size: 0.9em;
-          }
         }
-        hr {
-          border-color: reverseColor($color);
-          border-style: solid;
+        a {
+          color: $MEDIUM_COLOR;
         }
         ul,
         ol {
@@ -98,8 +108,9 @@
             margin-bottom: 0;
           }
         }
-        a {
-          color: $MEDIUM_COLOR;
+        hr {
+          border-color: reverseColor($color);
+          border-style: solid;
         }
         img {
           border-radius: $BORDER_RADIUS;

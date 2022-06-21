@@ -5,6 +5,8 @@
   display: flex;
   .aside {
     height: 100%;
+    background: url(../../img/overlay.png), $color;
+    transition: background-color ease 0.5s;
     .tag {
       @include tablet { display: none; }
       @include hidden-scroll;

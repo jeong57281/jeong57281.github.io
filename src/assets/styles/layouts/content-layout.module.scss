@@ -30,6 +30,8 @@
     max-width: 60em;
     .min-height {
       min-height: calc(var(--vh, 1vh) * 100 - $HEADER_HEIGHT);
+      background: url(../../img/overlay.png) $color;
+      transition: background-color ease 0.5s;
       .padding {
         @include tablet { padding: 60px 25px; }
         @include mobile { padding: 60px 20px; }
