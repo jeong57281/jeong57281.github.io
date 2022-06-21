@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.example.com/sitemap/sitemap-index.xml
+Host: https://jeong57281.github.io
