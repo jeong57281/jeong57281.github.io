@@ -7,7 +7,7 @@ import Utterances from "components/Utterances";
 import get from "lodash/get";
 import PostItem from "components/post-item";
 import ContentLayout from "layouts/content-layout";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const BlogPost = ({ location, data }) => {
   // utterances

@@ -4,7 +4,7 @@ import { ThemeContext } from "contexts/theme";
 import * as style from "assets/styles/pages/index.module.scss";
 import ContentLayout from "layouts/content-layout";
 import PostItem from "components/post-item";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const Index = ({ location, data }) => {
   // get markdown data

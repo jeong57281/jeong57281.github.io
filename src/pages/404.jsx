@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import { ThemeContext } from "contexts/theme";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import * as style from "assets/styles/pages/404.module.scss";
 import ContentLayout from "layouts/content-layout";
 

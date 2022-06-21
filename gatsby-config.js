@@ -125,6 +125,7 @@ module.exports = {
     siteUrl: 'https://jeong57281.github.io'
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-resolve-src',
     'gatsby-plugin-sharp',

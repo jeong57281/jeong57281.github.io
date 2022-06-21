@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "components/header";
 import Nav from "components/nav";
 import { ThemeContext } from "contexts/theme";
-import { HelmetProvider } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import * as style from "assets/styles/layouts/index.module.scss";
 
 const Index = ({ children, location, data }) => {
@@ -24,27 +24,33 @@ const Index = ({ children, location, data }) => {
   }, [])
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <HelmetProvider>
-        { ready &&
-          <div className={!theme ? style.layout: style.layoutDark}>
-            <div className={style.header}>
-              <Header location={location} data={data}/>
-            </div>
-            <main className={style.main}>
-              <div className={style.nav}>
-                <Nav
-                  location={location}
-                  minimize={minimize}
-                  setMinimize={setMinimize}
-                />
-              </div>
-              <div className={`${style.section} ${minimize ? style.big : style.small}`}>
-                {children}
-              </div>
-            </main>
+      <Helmet
+        meta={[
+          {
+            name: 'google-site-verification',
+            content: 'LwKjAts-rLkskyg9wgFh0L-OC3Y2Eo2T4SBrqPjxu8c'
+          }
+        ]}
+      />
+      { ready &&
+        <div className={!theme ? style.layout: style.layoutDark}>
+          <div className={style.header}>
+            <Header location={location} data={data}/>
           </div>
-        }
-      </HelmetProvider>
+          <main className={style.main}>
+            <div className={style.nav}>
+              <Nav
+                location={location}
+                minimize={minimize}
+                setMinimize={setMinimize}
+              />
+            </div>
+            <div className={`${style.section} ${minimize ? style.big : style.small}`}>
+              {children}
+            </div>
+          </main>
+        </div>
+      }
     </ThemeContext.Provider>
   );
 };

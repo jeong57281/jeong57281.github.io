@@ -5,7 +5,7 @@ import Intro from "components/intro";
 import Down from "assets/img/down.svg";
 import ContentLayout from "layouts/content-layout";
 import * as style from "assets/styles/pages/about.module.scss";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const About = ({ data }) => {
   // dark mode

@@ -5,7 +5,7 @@ import Intro from "components/intro";
 import Duce from "components/duce";
 import ContentLayout from "layouts/content-layout";
 import * as style from "assets/styles/pages/portfolio.module.scss";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const Portfolio = ({ data }) => {
   // dark mode
