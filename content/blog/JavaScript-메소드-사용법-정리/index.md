@@ -7,7 +7,9 @@ tags: ['JavaScript']
 
 > 필요할 때 참고해서 쓰되, 알고 사용하자는 의미에서 메소드 정리까지 함.
 
-## :heavy_plus_sign: 총 합 구하기 - Array.reduce
+<br/>
+
+## :heavy_plus_sign: 총 합 구하기 - reduce
 
 ```js
 Array.reduce( function ( accumulator, currentValue, currentIndex, array ), initalValue )
@@ -29,7 +31,7 @@ arr.reduce((s, c) => s+c, 0); // 10
 
 <br/>
 
-## :abc: 문자열 자리수 맞추기
+## :abc: 자릿수 맞추기 - padStart
 
 ```js
 String.padStart( targetLength, padString )
@@ -53,7 +55,7 @@ padString 이 목표 문자열 길이를 넘어서면 잘려 채워진다.
 ## :arrows_clockwise: 진법 변환 10 to N - toString
 
 ```js
-Number.toString( base ) // 10 to n
+Number.toString( base )
 ```
 
 * **base** : 변환할 진수의 밑수 (2진법의 경우 2)
@@ -61,7 +63,6 @@ Number.toString( base ) // 10 to n
 ```js:title=.js
 const num = 7;
 num.toString(2); // 111
-num.toString(2).padStart(4, 0); // 0111
 ```
 
 <br/>
@@ -75,7 +76,7 @@ parseInt( string, base )
 * **string** : 10진수로 변환할 (문자열) 진수
 * **base** (option) : string 진수의 밑수 (string 이 2진법 문자열일 경우 2)
 
-base 를 생략할 경우 default 값으로, string 진수의 밑수가 초기화 된다. (default 값이 10이 아님에 유의)
+base 를 생략할 경우 default 값으로 string 진수의 밑수가 초기화 된다. (default 값이 10이 아님에 유의)
 
 생략되었을 경우의 자세한 처리는 [공식문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/parseInt#%EC%84%A4%EB%AA%85)에 잘 설명되어 있다.
 
