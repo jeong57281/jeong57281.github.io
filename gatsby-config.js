@@ -120,12 +120,23 @@ module.exports = {
     utterances: {
       repo: 'jeong57281/jeong57281.github.io',
       theme: 'github-dark'
-    }
+    },
+    // seo
+    siteUrl: 'https://jeong57281.github.io'
   },
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-resolve-src',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://jeong57281.github.io',
+        sitemap: 'https://www.example.com/sitemap/sitemap-index.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
     {
       resolve: 'gatsby-plugin-layout',
       options: {
