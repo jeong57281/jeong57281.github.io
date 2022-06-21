@@ -2,7 +2,7 @@
 title: 'Gatsby 기술 블로그 제작기' 
 titleImage: '/img/thumbnail/blog.png'
 date: '2022-06-17'
-tags: ['Project', 'React']
+tags: ['Project']
 ---
 
 ## 들어가는 글

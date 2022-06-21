@@ -2,7 +2,7 @@
 title: 'knu lms scheduler 프로젝트' 
 titleImage: '/img/thumbnail/4.jpg'
 date: '2021-12-15'
-tags: ['Project', 'React']
+tags: ['Project']
 ---
 
 ## 개발 동기

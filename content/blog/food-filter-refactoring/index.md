@@ -2,7 +2,7 @@
 title: 'food filter 프로젝트 - refactoring' 
 titleImage: '/img/thumbnail/api.png'
 date: '2022-04-25'
-tags: ['Project', 'Vue']
+tags: ['Project']
 ---
 
 4학년 1학기 ~ 여름학기 동안 [food filter 웹 프로젝트](https://jeong57281.github.io/post/food-filter)를 진행했었다. 2학기가 다가올 때 쯤 웹 서비스가 동작이 되는 수준까지는 완료가 되었다 생각하고, 새학기에 할 다른 프로젝트를 기획하고 있었다.

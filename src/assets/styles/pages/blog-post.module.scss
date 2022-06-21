@@ -58,7 +58,8 @@
         h4,
         h5,
         h6,
-        p {
+        p,
+        li {
           code {
             font-family: "AppleSDGothicNeo";
             background: reverseColor($color);
@@ -95,10 +96,13 @@
         a {
           color: $MEDIUM_COLOR;
         }
+        > ul, ol { 
+          margin-bottom: 1.5em;
+        }
         ul,
         ol {
           list-style-position: inside;
-          margin-bottom: 1.5em;
+          padding-left: 1em;
           ::marker {
             font-weight: bold;
           }
@@ -109,8 +113,10 @@
           }
         }
         hr {
-          border-color: reverseColor($color);
+          border-color: lightColor($color);
           border-style: solid;
+          border-width: 2px 0 0 0;
+          transition: border-color ease 0.5s;
         }
         img {
           border-radius: $BORDER_RADIUS;
