@@ -85,7 +85,7 @@ Gatsby 는 정적 사이트 생성기고~ /src/pages 폴더 안의 파일명이 
 
 > 줄어들지 않는 width
 
-```scss{5}
+```scss
 section {
   width: 100%;
   display: flex;
