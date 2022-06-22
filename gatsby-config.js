@@ -163,7 +163,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-code-titles',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -189,7 +188,7 @@ module.exports = {
               classPrefix: 'language-',
               inlineCodeMarker: null,
               aliases: {},
-              showLineNumbers: true,
+              showLineNumbers: false,
               noInlineHighlight: false,
             }
           }

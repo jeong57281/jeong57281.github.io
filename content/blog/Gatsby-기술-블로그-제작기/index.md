@@ -58,7 +58,7 @@ Gatsby 는 정적 사이트 생성기고~ /src/pages 폴더 안의 파일명이 
 3. 항목이 없을 때에도 footer 가 보이지 않도록 최소 높이를 지정한다.
 4. padding
 
-```html{5,9}:title=content-layout.jsx
+```html{5, 9}
 <div className={style.layout} id="scroll">
   <div className={style.maxWidth}>
     <div className={style.minHeight}>
@@ -71,7 +71,7 @@ Gatsby 는 정적 사이트 생성기고~ /src/pages 폴더 안의 파일명이 
 </div>
 ```
 
-```html:title=pages.jsx
+```html
 <ContentLayout>
   <!-- 내용 -->
 </ContentLayout>
@@ -85,7 +85,7 @@ Gatsby 는 정적 사이트 생성기고~ /src/pages 폴더 안의 파일명이 
 
 > 줄어들지 않는 width
 
-```scss:title=.scss
+```scss{5}
 section {
   width: 100%;
   display: flex;
@@ -116,7 +116,7 @@ section {
 
 > 해결 방법
 
-```css:title=.css
+```css
 article {
   width: calc(100% - 300px);
 }
