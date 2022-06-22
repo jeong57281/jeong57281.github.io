@@ -1,7 +1,7 @@
 @import "../libs";
 
 @mixin toc($color: $LIGHT_COLOR) {
-  @include tablet { margin-top: 0; }
+  @include tablet { margin: 0; }
   margin: 60px 0;
   font-weight: 500;
   .toc-list {

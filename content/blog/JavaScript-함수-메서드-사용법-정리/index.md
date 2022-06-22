@@ -61,6 +61,25 @@ arr.reduce((s, c) => s+c, 0); // 10
 
 # String
 
+## toLowerCase, toUpperCase
+
+```js
+String.toLowerCase()
+String.toUpperCase()
+```
+
+문자열을 전부 소문자, 대문자로 변경해준다.
+
+```js
+String.prototype.toUpperCase.call(true); // TRUE
+```
+
+toUpperCase 의 this 가 `undefined`, `null`, `문자열` 이 아닌 값이 사용될 경우 모두 대문자로 변환해 반환한다고 한다. (이런식으로 사용할 경우가 있을까?)
+
+### :ab: 대소문자 변경
+
+위에 설명되어 있음.
+
 ## padStart
 
 ```js
@@ -107,8 +126,8 @@ Number.toFixed( digit )
 
 * **digit** (option) : 소수점 자릿수 (default: 0)
 
-소수점 digit 자리까지 반올림하여 문자열로 반환한다.<br/>
-음수의 경우는 문자열로 반환하지 않는다.<br/>
+소수점 digit 자리까지 반올림하여 string 으로 반환한다.<br/>
+음수의 경우는 number 로 반환한다.<br/>
 소수점 이하 자리수가 digit 보다 작을 경우 0으로 채운다.
 
 ### :arrow_up: 소수점 반올림
@@ -161,7 +180,7 @@ a-b 는 a가 b보다 작을 때에만 음수가 반환되기 때문에 오름차
 
 ### :signal_strength: 다중 요소 정렬
 
-```js
+```js{4}
 const arr = [[2, 5], [1, 2], [3, 8], [10, 1], [2, 9]];
 const compare = (a, b) => {
   if(a[0] < b[0]) return -1;
@@ -177,7 +196,65 @@ console.log(arr.sort(compare));
 
 요소 배열의 첫 번째 원소는 오름차순으로, 두 번째 원소는 내림차순으로 정렬했다.
 
-a, b 가 **같을 때** 두 번째 요소를 이용해서 비교를 해줘야 하는데, 자꾸만 **크거나 같을 때** 로 조건문을 짜는 코딩 실수를 한다.
+(a, b 가 **같을 때** 두 번째 요소를 이용해서 비교를 해줘야 하는데, 강조한 라인을 빼먹고 자꾸만 **크거나 같을 때** 로 조건문을 짜는 코딩 실수를 한다.)
+
+# Object
+
+### :x: 객체 속성 삭제
+
+```js
+const obj = { 'Jeju': 1, 'Pangyo': 2 };
+delete obj.Jeju; // { 'Pangyo': 2 }
+delete obj.Pangyo; // {}
+```
+
+* **delete** : 성공적으로 삭제됬거나 없는 속성을 삭제하려하면 true 를, 삭제하지 못했다면 false 를 반환한다.
+
+## keys, values, entries
+
+```js
+Object.keys( object )
+Object.values( object )
+Object.entries( object )
+```
+
+* **keys** : key 로 구성된 배열을 반환한다.
+* **values** : value 로 구성된 배열을 반환한다.
+* **entries** : \[key, value\] 쌍의 배열로 구성된 배열을 반환한다.
+
+배열의 순서는 for-in 루프의 순서와 같다.
+
+### :1234: 객체 속성 개수 구하기
+
+```js
+const obj = { 'Jeju': 1, 'Pangyo': 2 };
+Object.keys(obj).length; // 2
+```
+
+## hasOwnProperty
+
+```js
+Object.hasOwnProperty( prop )
+```
+
+* **prop** : 속성명 확인
+
+### :heavy_check_mark: 객체 속성값 존재 확인
+
+```js{7,8}
+const obj = { 'Jeju': 1, 'Pangyo': 2 };
+obj.hasOwnProperty('Jeju') // true
+obj.hasOwnProperty('prop') // false
+
+const _obj = { 'hasOwnProperty': () => 0, 'Jeju': 1, 'Pangyo': 2 };
+_obj.hasOwnProperty('Jeju'); // 0
+({}).hasOwnProperty.call(_obj, 'Pangyo') // true
+Object.prototype.hasOwnProperty.call(_obj, 'prop'); // false
+```
+
+만약 속성에 hasOwnProperty 이름의 value 를 함수를 가지는 속성이 존재해도 경고를 일으키지 않는다.
+
+`_obj` 의 경우 hasOwnProperty 를 사용하려면 강조한 두 방법을 사용하면 된다.
 
 # RegExp
 
@@ -195,15 +272,15 @@ a, b 가 **같을 때** 두 번째 요소를 이용해서 비교를 해줘야 �
 
 |패턴|의미|
 |-|-|
-|*, {0,}|\*, {0,}앞에 오는 문자가 0개 이상으로 나타날 수 있다.|
-|+, {1,}|\+, {1,}앞에 오는 문자가 1개 이상으로 나타날 수 있다.|
-|{n, m}|앞에 오는 문자가 n번 이상 m번 이하로 나타날 수 있다.|
+|*, {0,}|\*, {0,}앞에 오는 문자가 0개 이상으로 일치한다.|
+|+, {1,}|\+, {1,}앞에 오는 문자가 1개 이상으로 일치한다.|
+|{n, m}|앞에 오는 문자가 n번 이상 m번 이하로 일치한다.|
 |^|패턴이 ^뒤에 오는 문자로 시작한다.|
 |$|패턴이 $앞에 오는 문자로 끝난다.|
-|?|패턴 중 ?앞에 오는 문자가 없거나 하나가 나타날 수 있다.|
-|.|패턴 중 .앞에 오는 문자가 정확히 하나가 나타날 수 있다.|
-|x\|y|x 또는 y 중 하나가 나타날 수 있다.|
-|\[xyz\]|x, y, x 중 하나가 나타날 수 있다.|
+|?|패턴 중 ?앞에 오는 문자가 없거나 하나가 일치한다.|
+|.|패턴 중 .앞에 오는 문자가 정확히 하나가 일치한다.|
+|x\|y|x 또는 y 중 하나가 일치한다.|
+|\[xyz\]|x, y, x 중 하나가 일치한다.|
 |\(xy\)|포획 괄호, 괄호 안의 문자열을 하나의 단위로 취급하며 대응된 문자열을 기억하는 효과를 갖는다.|
 |\\|패턴에 들어올 수 있는 의미있는 문자를 패턴으로 사용하기 위한 이스케이핑 문자|
 
