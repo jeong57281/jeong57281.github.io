@@ -8,7 +8,7 @@ tags: ['JavaScript']
 > 필요할 때 참고해서 쓰되, 알고 사용하자는 의미에서 정리까지 함.
 <br/>
 
-# 전역 함수
+# global
 
 ## parseInt
 
@@ -21,13 +21,13 @@ parseInt( string, base )
 
 base 를 생략할 경우 default 값으로 string 진수의 밑수가 초기화 된다. (default 값이 10이 아님에 유의)
 
-### :arrows_clockwise: 진법 변환 N to 10
+### ▪ 진법 변환 N to 10
 
 ```js
 parseInt('0110', 2); // 6
 ```
 
-### :arrow_double_down: 소수점 버림
+### ▪ 소수점 버림
 
 ```js
 parseInt(15.4) // 15
@@ -87,7 +87,7 @@ Array.reduce( function ( accumulator, currentValue, currentIndex, array ), inita
 
 callback 함수는 4가지 인자를 받고, 반환 값을 accumulator 에 누적한다. 최종적으로 reduce 함수는 accumulator 를 반환한다.
 
-### :heavy_plus_sign: 총합 구하기
+### ▪ 총합 구하기
 
 ```js
 const arr = [1, 2, 3, 4];
@@ -95,6 +95,10 @@ arr.reduce((s, c) => s+c, 0); // 10
 ```
 
 # String
+
+## slice
+
+Array 의 slice 와 사용법이 같다.
 
 ## fromCharCode
 
@@ -106,7 +110,7 @@ String.fromCharCode( num1, ..., numN )
 
 매개인자가 여러개가 들어올 수 있으며, 각각의 변경된 문자는 하나의 문자열로 반환된다.
 
-### :a: 코드값 문자로 변경
+### ▪ 코드값 문자로 변경
 
 ```js
 String.fromCharCode(0x41, 0x61); // Aa
@@ -123,17 +127,13 @@ String.charCodeAt( index )
 \- **숫자가 아닌 값**이 들어오면 0 을 사용한다. (아무런 값도 입력하지 않으면 undefined 가 들어가는 것 같다.)<br/>
 \- 범위 밖의 index 를 입력했을 경우 NaN 를 반환한다.
 
-### :six: 문자 코드값으로 변경
+### ▪ 문자 코드값으로 변경
 
 ```js
 'abc'.charCodeAt().toString(16) // 61
 'ABC'.charCodeAt(0).toString(16) // 41
 'ABC'.charCodeAt(3).toString(16) // NaN
 ```
-
-## slice
-
-Array 의 slice 와 사용법이 같다.
 
 ## toLowerCase, toUpperCase
 
@@ -150,7 +150,7 @@ String.prototype.toUpperCase.call(true); // TRUE
 
 toUpperCase 의 this 가 `undefined`, `null`, `문자열` 이 아닌 값이 사용될 경우 모두 대문자로 변환해 반환한다고 한다. (이런식으로 사용할 경우가 있을까?)
 
-### :ab: 대소문자 변경
+### ▪ 대소문자 변경
 
 위에 설명되어 있음.
 
@@ -168,7 +168,7 @@ String.padStart( targetLength, padString )
 \- padString 에 아무런 값도 주어지지 않으면 공백이 사용된다.<br/>
 \- padString 이 목표 문자열 길이를 넘어서면 잘려 채워진다.
 
-### :abc: 문자열 자릿수 맞추기
+### ▪ 문자열 자릿수 맞추기
 
 ```js
 '0110'.padStart(8);    // "    0110"
@@ -185,7 +185,7 @@ Number.toString( base )
 
 * `base` : 변환할 진수의 밑수 (2진법의 경우 2)
 
-### :arrows_clockwise: 진법 변환 10 to N
+### ▪ 진법 변환 10 to N
 
 ```js
 const num = 7;
@@ -204,14 +204,14 @@ Number.toFixed( digit )
 \- 음수의 경우는 number 로 반환한다.<br/>
 \- 소수점 이하 자리수가 digit 보다 작을 경우 0으로 채운다.
 
-### :arrow_up: 소수점 반올림
+### ▪ 소수점 반올림
 
 ```js
 15.4123651.toFixed(4); // 15.4124 (type: string)
 -15.4123651.toFixed(4); // -15.4124 (type: number)
 ```
 
-### :keycap_ten: 소수점 자리수 채우기
+### ▪ 소수점 자리수 채우기
 
 ```js
 15.41.toFixed(8); // 15.41000000 (type: string)
@@ -237,7 +237,7 @@ callback 함수가 주어진 경우 반환한 값을 3가지로 나누어 처리
 2. 0 : 아무것도 하지 않는다.
 3. 0보다 큰 값 : b가 a앞에 온다.
 
-### :signal_strength: 단일 요소 정렬
+### ▪ 단일 요소 정렬
 
 ```js
 const arr = [2, 1, 3, 10];
@@ -252,7 +252,7 @@ arr.sort((a, b) => a-b); // 1, 2, 3, 10
 
 a-b 는 a가 b보다 작을 때에만 음수가 반환되기 때문에 오름차순으로 정렬된다.
 
-### :signal_strength: 다중 요소 정렬
+### ▪ 다중 요소 정렬
 
 ```js{4}
 const arr = [[2, 5], [1, 2], [3, 8], [10, 1], [2, 9]];
@@ -274,7 +274,7 @@ console.log(arr.sort(compare));
 
 # Object
 
-### :x: 객체 속성 삭제
+### ▪ 객체 속성 삭제
 
 ```js
 const obj = { 'Jeju': 1, 'Pangyo': 2 };
@@ -298,7 +298,7 @@ Object.entries( object )
 
 배열의 순서는 for-in 루프의 순서와 같다.
 
-### :1234: 객체 속성 개수 구하기
+### ▪ 객체 속성 개수 구하기
 
 ```js
 const obj = { 'Jeju': 1, 'Pangyo': 2 };
@@ -313,7 +313,7 @@ Object.hasOwnProperty( prop )
 
 * `prop` : 속성명 확인
 
-### :heavy_check_mark: 객체 속성값 존재 확인
+### ▪ 객체 속성값 존재 확인
 
 ```js{7,8}
 const obj = { 'Jeju': 1, 'Pangyo': 2 };
@@ -381,7 +381,7 @@ String.split( RegExp ) // 같은 결과
 
 String 객체의 split 메서드에 정규 표현식 객체를 넣어줄 경우 내부적으로 RegExp 객체의 \[Symbol.split\] 메서드가 호출이 된다.
 
-### :broken_heart: 패턴을 포함한 문자열 분리
+### ▪ 패턴을 포함한 문자열 분리
 
 ```js
 const regexp = new RegExp(/([A-Z]{1}#?)/g);

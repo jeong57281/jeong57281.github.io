@@ -61,7 +61,7 @@
         p,
         li {
           code {
-            padding: 2px 4px;
+            padding: 1.5px 4px;
             border-radius: $BORDER_RADIUS;
             color: reverseColor($color);
             background: darkColor($color);
@@ -103,9 +103,6 @@
         ol {
           list-style-position: inside;
           padding-left: 1em;
-          ::marker {
-            font-weight: bold;
-          }
         }
         ol {
           p {
