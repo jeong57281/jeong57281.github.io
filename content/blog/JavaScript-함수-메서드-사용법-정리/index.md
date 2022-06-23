@@ -37,6 +37,43 @@ parseInt(15.4) // 15
 
 # Array
 
+## forEach
+
+```js
+Array.forEach( function( currentValue, index, array ), thisArg )
+```
+
+* **callback** : 배열의 값을 순차적으로 전달받음
+  * **currentValue** : 요소 값
+  * **index** (option) : 요소 인덱스
+  * **array** (option) : 호출한 배열
+* **thisArg** (option) : callback 함수에서 this 로 사용할 값
+
+thisArg 는 this 값을 가지지 않는 화살표 함수나, function 에 직접 this 를 bind 하는 것으로 대체할 수 있다. <br/>
+forEach 는 undefined 를 반환하므로 메서드 체인의 중간에 사용할 수 없다. <br/>
+예외를 발생시키지 않고서는 중간에 멈출 수 없다.
+
+## slice
+
+```js
+Array.slice( begin, end )
+```
+
+* **begin** (option) : 잘라낼 시작 인덱스
+* **end** (option) : 잘라낼 마지막 `+1` 인덱스
+
+for 문에서 조건문에 등호를 보편적으로 쓰지 않는 것 처럼 end 값은 인덱스에 포함되지 않는다.</br>
+end 생략 시 배열의 끝까지 잘라낸다. Array.length 가 들어간다고 생각하면 된다. </br>
+begin 마저 주어지지 않거나 undefined 값이 들어올 경우 0부터 추출한다. </br>
+begin 이 Array.length 보다 크거나 같을 경우 빈 배열을 반환한다.
+
+|arr|1|2|3|4|5|
+|-|-|-|-|-|-|
+|음수 인덱스|-5|-4|-3|-2|-1|
+|양수 인덱스|0|1|2|3|4|
+
+음수 인덱스 사용도 가능하다.
+
 ## reduce
 
 ```js
@@ -60,6 +97,45 @@ arr.reduce((s, c) => s+c, 0); // 10
 ```
 
 # String
+
+## fromCharCode
+
+```js
+String.fromCharCode( num1, ..., numN )
+```
+
+* **numN** (option) : UTF-16 코드 값 (0~65535)
+
+매개인자가 여러개가 들어올 수 있으며, 각각의 변경된 문자는 하나의 문자열로 반환된다.
+
+### :a: 코드값 문자로 변경
+
+```js
+String.fromCharCode(0x41, 0x61); // Aa
+```
+
+## charCodeAt
+
+```js
+String.charCodeAt( index )
+```
+
+* **index** : code 로 변경하려는 문자열의 index 값
+
+**숫자가 아닌 값**이 들어오면 0 을 사용한다. (아무런 값도 입력하지 않으면 undefined 가 들어가는 것 같다.)<br/>
+범위 밖의 index 를 입력했을 경우 NaN 를 반환한다.
+
+### :six: 문자 코드값으로 변경
+
+```js
+'abc'.charCodeAt().toString(16) // 61
+'ABC'.charCodeAt(0).toString(16) // 41
+'ABC'.charCodeAt(3).toString(16) // NaN
+```
+
+## slice
+
+Array 의 slice 와 사용법이 같다.
 
 ## toLowerCase, toUpperCase
 
@@ -315,7 +391,6 @@ const res = regexp[Symbol.split]('CC#BCC#BCC#BCC#B').filter(el => el !== '');
 console.log(res);
 // [ 'C', 'C#', 'B', 'C', 'C#', 'B', 'C', 'C#', 'B', 'C', 'C#', 'B' ]
 ```
-
 
 # 참고
 

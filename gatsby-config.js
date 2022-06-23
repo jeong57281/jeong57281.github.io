@@ -92,7 +92,7 @@ module.exports = {
       {
         image: '/img/project/blog.png',
         title: '기술 블로그',
-        description: 'Gatsby 를 이용해 개발한, 포트폴리오 용도로도 사용 가능한 기술 블로그 입니다.',
+        description: 'Gatsby 를 이용해 개발한, 포트폴리오 용도로도 사용할 수 있는 기술 블로그 입니다.',
         links: [
           {
             name: 'Github Repository',
