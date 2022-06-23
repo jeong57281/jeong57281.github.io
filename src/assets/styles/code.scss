@@ -56,3 +56,85 @@
     }
   }
 }
+
+.gatsby-highlight[data-language='js']::before {
+  content: 'js';
+  background: #f7df1e;
+}
+
+.gatsby-highlight[data-language='jsx']::before {
+  content: 'jsx';
+  background: #61dafb;
+}
+
+.gatsby-highlight[data-language='ts']::before {
+  content: 'ts';
+  background: #294e80;
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='ts']::before {
+  content: 'ts';
+  background: #294e80;
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='tsx']::before {
+  content: 'tsx';
+  background: #294e80;
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='GraphQL']::before {
+  content: 'GraphQL';
+  background: #E10098;
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='html']::before {
+  content: 'html';
+  background: #005A9C;
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='css']::before {
+  content: 'css';
+  background: #ff9800;
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='mdx']::before {
+  content: 'mdx';
+  background: #f9ac00;
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='yaml']::before {
+  content: 'yaml';
+  background: #ffa8df;
+}
+
+.gatsby-highlight[data-language='json']::before {
+  content: 'json';
+  background: linen;
+}
+
+.gatsby-highlight[data-language='json5']::before {
+  content: 'json5';
+  background: linen;
+}
+
+.gatsby-highlight[data-language='diff']::before {
+  content: 'diff';
+  background: #e6ffed;
+}
+
+.gatsby-highlight[data-language='text']::before {
+  content: 'text';
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='flow']::before {
+  content: 'flow';
+  background: #E8BD36;
+}

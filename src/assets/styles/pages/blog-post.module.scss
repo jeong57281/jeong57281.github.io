@@ -43,7 +43,7 @@
             a {
               background: $MEDIUM_COLOR;
               color: $color;
-              border-radius: 7px;
+              border-radius: $BORDER_RADIUS;
               padding: 4px 8px;
               text-decoration: none;
             }
@@ -61,12 +61,12 @@
         p,
         li {
           code {
+            padding: 2px 4px;
+            border-radius: $BORDER_RADIUS;
+            color: reverseColor($color);
+            background: darkColor($color);
+            transition: background-color ease 0.5s;
             font-family: "AppleSDGothicNeo";
-            background: reverseColor($color);
-            color: $color;
-            border-radius: 7px;
-            padding: 1px 4px;
-            font-size: 0.9em;
           }
         }
         blockquote {
@@ -127,25 +127,29 @@
           padding: 0.5em;
           margin-bottom: 1.5em;
           border-collapse: collapse;
-        }
-        th,
-        td {
-          padding: 0.2em 0.5em;
-        }
-        td {
-          border-left: 2px solid reverseColor($color);
-          &:first-child {
-            border-left: none;
+          border-radius: 0.3em;
+          overflow: hidden;
+          th,
+          td {
+            padding: 0.2em 0.5em;
           }
-          border-top: 1px solid reverseColor($color);
-        }
-        th {
-          border-left: 2px solid $color;
-          &:first-child {
-            border-left: none;
+          th {
+            color: $color;
+            border-left: $BORDER_WIDTH solid $color;
+            background-color: reverseColor($color);
+            transition: background-color ease 0.5s, border-color ease 0.5s;
+            &:first-child {
+              border-left: none;
+            }
           }
-          background-color: reverseColor($color);
-          color: $color;
+          td {
+            border-top: 1px solid reverseColor($color);
+            border-left: $BORDER_WIDTH solid reverseColor($color);
+            transition: border-color ease 0.5s;
+            &:first-child {
+              border-left: none;
+            }
+          }
         }
       }
     }

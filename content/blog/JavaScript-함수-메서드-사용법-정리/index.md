@@ -16,12 +16,10 @@ tags: ['JavaScript']
 parseInt( string, base )
 ```
 
-* **string** : 10진수로 변환할 (문자열) 진수
-* **base** (option) : string 진수의 밑수 (string 이 2진법 문자열일 경우 2)
+* `string` : 10진수로 변환할 (문자열) 진수
+* `base` (option) : string 진수의 밑수 (string 이 2진법 문자열일 경우 2)
 
 base 를 생략할 경우 default 값으로 string 진수의 밑수가 초기화 된다. (default 값이 10이 아님에 유의)
-
-생략되었을 경우의 자세한 처리는 [공식문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/parseInt#%EC%84%A4%EB%AA%85)에 잘 설명되어 있다.
 
 ### :arrows_clockwise: 진법 변환 N to 10
 
@@ -43,15 +41,15 @@ parseInt(15.4) // 15
 Array.forEach( function( currentValue, index, array ), thisArg )
 ```
 
-* **callback** : 배열의 값을 순차적으로 전달받음
-  * **currentValue** : 요소 값
-  * **index** (option) : 요소 인덱스
-  * **array** (option) : 호출한 배열
-* **thisArg** (option) : callback 함수에서 this 로 사용할 값
+* `callback` : 배열의 값을 순차적으로 전달받음
+  * `currentValue` : 요소 값
+  * `index` (option) : 요소 인덱스
+  * `array` (option) : 호출한 배열
+* `thisArg` (option) : callback 함수에서 this 로 사용할 값
 
-thisArg 는 this 값을 가지지 않는 화살표 함수나, function 에 직접 this 를 bind 하는 것으로 대체할 수 있다. <br/>
-forEach 는 undefined 를 반환하므로 메서드 체인의 중간에 사용할 수 없다. <br/>
-예외를 발생시키지 않고서는 중간에 멈출 수 없다.
+\- thisArg 는 this 값을 가지지 않는 화살표 함수나, function 에 직접 this 를 bind 하는 것으로 대체할 수 있다. <br/>
+\- forEach 는 undefined 를 반환하므로 메서드 체인의 중간에 사용할 수 없다. <br/>
+\- 예외를 발생시키지 않고서는 중간에 멈출 수 없다.
 
 ## slice
 
@@ -59,13 +57,13 @@ forEach 는 undefined 를 반환하므로 메서드 체인의 중간에 사용�
 Array.slice( begin, end )
 ```
 
-* **begin** (option) : 잘라낼 시작 인덱스
-* **end** (option) : 잘라낼 마지막 `+1` 인덱스
+* `begin` (option) : 잘라 낼 시작 인덱스
+* `end` (option) : 잘라 낼 마지막 인덱스 `+1`
 
-for 문에서 조건문에 등호를 보편적으로 쓰지 않는 것 처럼 end 값은 인덱스에 포함되지 않는다.</br>
-end 생략 시 배열의 끝까지 잘라낸다. Array.length 가 들어간다고 생각하면 된다. </br>
-begin 마저 주어지지 않거나 undefined 값이 들어올 경우 0부터 추출한다. </br>
-begin 이 Array.length 보다 크거나 같을 경우 빈 배열을 반환한다.
+\- for 문에서 조건문에 등호를 보편적으로 쓰지 않는 것 처럼 end 값은 인덱스에 포함되지 않는다.</br>
+\- end 생략 시 배열의 끝까지 잘라낸다. Array.length 가 들어간다고 생각하면 된다. </br>
+\- begin 마저 주어지지 않거나 undefined 값이 들어올 경우 0부터 추출한다. </br>
+\- begin 이 Array.length 보다 크거나 같을 경우 빈 배열을 반환한다.
 
 |arr|1|2|3|4|5|
 |-|-|-|-|-|-|
@@ -80,12 +78,12 @@ begin 이 Array.length 보다 크거나 같을 경우 빈 배열을 반환한다
 Array.reduce( function ( accumulator, currentValue, currentIndex, array ), initalValue )
 ```
 
-* **callback**
-  * **accumulator** : 누적값
-  * **currentValue** : 요소 값
-  * **currentIndex** (option) : 요소 인덱스
-  * **array** (option) : 호출한 배열
-* **initalValue** (option) : accumulator 의 초기값 (제공하지 않으면 배열의 첫 번째 요소 사용)
+* `callback`
+  * `accumulator` : 누적값
+  * `currentValue` : 요소 값
+  * `currentIndex` (option) : 요소 인덱스
+  * `array` (option) : 호출한 배열
+* `initalValue` (option) : accumulator 의 초기값 (제공하지 않으면 배열의 첫 번째 요소 사용)
 
 callback 함수는 4가지 인자를 받고, 반환 값을 accumulator 에 누적한다. 최종적으로 reduce 함수는 accumulator 를 반환한다.
 
@@ -104,7 +102,7 @@ arr.reduce((s, c) => s+c, 0); // 10
 String.fromCharCode( num1, ..., numN )
 ```
 
-* **numN** (option) : UTF-16 코드 값 (0~65535)
+* `numN` (option) : UTF-16 코드 값 (0~65535)
 
 매개인자가 여러개가 들어올 수 있으며, 각각의 변경된 문자는 하나의 문자열로 반환된다.
 
@@ -120,10 +118,10 @@ String.fromCharCode(0x41, 0x61); // Aa
 String.charCodeAt( index )
 ```
 
-* **index** : code 로 변경하려는 문자열의 index 값
+* `index` : code 로 변경하려는 문자열의 index 값
 
-**숫자가 아닌 값**이 들어오면 0 을 사용한다. (아무런 값도 입력하지 않으면 undefined 가 들어가는 것 같다.)<br/>
-범위 밖의 index 를 입력했을 경우 NaN 를 반환한다.
+\- **숫자가 아닌 값**이 들어오면 0 을 사용한다. (아무런 값도 입력하지 않으면 undefined 가 들어가는 것 같다.)<br/>
+\- 범위 밖의 index 를 입력했을 경우 NaN 를 반환한다.
 
 ### :six: 문자 코드값으로 변경
 
@@ -162,13 +160,13 @@ toUpperCase 의 this 가 `undefined`, `null`, `문자열` 이 아닌 값이 사�
 String.padStart( targetLength, padString )
 ```
 
-* **targetLength** : 목표 문자열 길이
-* **padString** (option) : 채워 넣을 문자열
+* `targetLength` : 목표 문자열 길이
+* `padString` (option) : 채워 넣을 문자열
 
-항상 왼쪽부터 채워 나간다.<br/>
-targetLength 보다 문자열이 길다면 그대로 반환한다.<br/>
-padString 에 아무런 값도 주어지지 않으면 공백이 사용된다.<br/>
-padString 이 목표 문자열 길이를 넘어서면 잘려 채워진다.
+\- 항상 왼쪽부터 채워 나간다.<br/>
+\- targetLength 보다 문자열이 길다면 그대로 반환한다.<br/>
+\- padString 에 아무런 값도 주어지지 않으면 공백이 사용된다.<br/>
+\- padString 이 목표 문자열 길이를 넘어서면 잘려 채워진다.
 
 ### :abc: 문자열 자릿수 맞추기
 
@@ -185,7 +183,7 @@ padString 이 목표 문자열 길이를 넘어서면 잘려 채워진다.
 Number.toString( base )
 ```
 
-* **base** : 변환할 진수의 밑수 (2진법의 경우 2)
+* `base` : 변환할 진수의 밑수 (2진법의 경우 2)
 
 ### :arrows_clockwise: 진법 변환 10 to N
 
@@ -200,11 +198,11 @@ num.toString(2); // 111
 Number.toFixed( digit )
 ```
 
-* **digit** (option) : 소수점 자릿수 (default: 0)
+* `digit` (option) : 소수점 자릿수 (default: 0)
 
-소수점 digit 자리까지 반올림하여 string 으로 반환한다.<br/>
-음수의 경우는 number 로 반환한다.<br/>
-소수점 이하 자리수가 digit 보다 작을 경우 0으로 채운다.
+\- 소수점 digit 자리까지 반올림하여 string 으로 반환한다.<br/>
+\- 음수의 경우는 number 로 반환한다.<br/>
+\- 소수점 이하 자리수가 digit 보다 작을 경우 0으로 채운다.
 
 ### :arrow_up: 소수점 반올림
 
@@ -228,8 +226,8 @@ Number.toFixed( digit )
 Array.sort( function( a, b ) )
 ```
 
-* **callback** (option) : 비교함수
-  * **a**, **b** : 비교중인 두 값
+* `callback` (option) : 비교함수
+  * `a`, `b` : 비교중인 두 값
 
 callback 함수를 생략하면 **문자열**로 변환한 후 비교하여 유니코드의 코드 포인트를 기준으로 오름차순 정렬된다. (정수 배열을 정렬할 때 기본이 오름차순 정렬이라고 해서 callback 함수 없이 사용하면 엉망으로 정렬된다.)
 
@@ -284,7 +282,7 @@ delete obj.Jeju; // { 'Pangyo': 2 }
 delete obj.Pangyo; // {}
 ```
 
-* **delete** : 성공적으로 삭제됬거나 없는 속성을 삭제하려하면 true 를, 삭제하지 못했다면 false 를 반환한다.
+* `delete` : 성공적으로 삭제됬거나 없는 속성을 삭제하려하면 true 를, 삭제하지 못했다면 false 를 반환한다.
 
 ## keys, values, entries
 
@@ -294,9 +292,9 @@ Object.values( object )
 Object.entries( object )
 ```
 
-* **keys** : key 로 구성된 배열을 반환한다.
-* **values** : value 로 구성된 배열을 반환한다.
-* **entries** : \[key, value\] 쌍의 배열로 구성된 배열을 반환한다.
+* `keys` : key 로 구성된 배열을 반환한다.
+* `values` : value 로 구성된 배열을 반환한다.
+* `entries` : \[key, value\] 쌍의 배열로 구성된 배열을 반환한다.
 
 배열의 순서는 for-in 루프의 순서와 같다.
 
@@ -313,7 +311,7 @@ Object.keys(obj).length; // 2
 Object.hasOwnProperty( prop )
 ```
 
-* **prop** : 속성명 확인
+* `prop` : 속성명 확인
 
 ### :heavy_check_mark: 객체 속성값 존재 확인
 
@@ -348,8 +346,8 @@ Object.prototype.hasOwnProperty.call(_obj, 'prop'); // false
 
 |패턴|의미|
 |-|-|
-|*, {0,}|\*, {0,}앞에 오는 문자가 0개 이상으로 일치한다.|
-|+, {1,}|\+, {1,}앞에 오는 문자가 1개 이상으로 일치한다.|
+|*, {0,}|\*, {0,}앞에 오는 문자가 0개 이상 일치한다.|
+|+, {1,}|\+, {1,}앞에 오는 문자가 1개 이상 일치한다.|
 |{n, m}|앞에 오는 문자가 n번 이상 m번 이하로 일치한다.|
 |^|패턴이 ^뒤에 오는 문자로 시작한다.|
 |$|패턴이 $앞에 오는 문자로 끝난다.|
@@ -379,7 +377,7 @@ RegExp[Symbol.split]( str )
 String.split( RegExp ) // 같은 결과
 ```
 
-* **str** : 분리할 문자열
+* `str` : 분리할 문자열
 
 String 객체의 split 메서드에 정규 표현식 객체를 넣어줄 경우 내부적으로 RegExp 객체의 \[Symbol.split\] 메서드가 호출이 된다.
 
