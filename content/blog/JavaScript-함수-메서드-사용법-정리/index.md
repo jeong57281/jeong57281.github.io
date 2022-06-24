@@ -12,7 +12,7 @@ tags: ['JavaScript']
 
 ## parseInt
 
-```js
+```
 parseInt( string, base )
 ```
 
@@ -37,7 +37,7 @@ parseInt(15.4) // 15
 
 ## forEach
 
-```js
+```
 Array.forEach( function( currentValue, index, array ), thisArg )
 ```
 
@@ -53,7 +53,7 @@ Array.forEach( function( currentValue, index, array ), thisArg )
 
 ## slice
 
-```js
+```
 Array.slice( begin, end )
 ```
 
@@ -74,7 +74,7 @@ Array.slice( begin, end )
 
 ## reduce
 
-```js
+```
 Array.reduce( function ( accumulator, currentValue, currentIndex, array ), initalValue )
 ```
 
@@ -102,7 +102,7 @@ Array 의 slice 와 사용법이 같다.
 
 ## fromCharCode
 
-```js
+```
 String.fromCharCode( num1, ..., numN )
 ```
 
@@ -118,7 +118,7 @@ String.fromCharCode(0x41, 0x61); // Aa
 
 ## charCodeAt
 
-```js
+```
 String.charCodeAt( index )
 ```
 
@@ -137,7 +137,7 @@ String.charCodeAt( index )
 
 ## toLowerCase, toUpperCase
 
-```js
+```
 String.toLowerCase()
 String.toUpperCase()
 ```
@@ -156,7 +156,7 @@ toUpperCase 의 this 가 `undefined`, `null`, `문자열` 이 아닌 값이 사�
 
 ## padStart
 
-```js
+```
 String.padStart( targetLength, padString )
 ```
 
@@ -179,7 +179,7 @@ String.padStart( targetLength, padString )
 
 ## toString
 
-```js
+```
 Number.toString( base )
 ```
 
@@ -194,7 +194,7 @@ num.toString(2); // 111
 
 ## toFixed
 
-```js
+```
 Number.toFixed( digit )
 ```
 
@@ -222,7 +222,7 @@ Number.toFixed( digit )
 
 ## sort
 
-```js
+```
 Array.sort( function( a, b ) )
 ```
 
@@ -278,7 +278,7 @@ console.log(arr.sort(compare));
 
 ```js
 const obj = { 'Jeju': 1, 'Pangyo': 2 };
-delete obj.Jeju; // { 'Pangyo': 2 }
+delete obj['Jeju']; // { 'Pangyo': 2 }
 delete obj.Pangyo; // {}
 ```
 
@@ -286,7 +286,7 @@ delete obj.Pangyo; // {}
 
 ## keys, values, entries
 
-```js
+```
 Object.keys( object )
 Object.values( object )
 Object.entries( object )
@@ -307,7 +307,7 @@ Object.keys(obj).length; // 2
 
 ## hasOwnProperty
 
-```js
+```
 Object.hasOwnProperty( prop )
 ```
 
@@ -372,7 +372,7 @@ flag 는 옵션이므로 값을 주지 않으면 패턴이 여러개더라도 �
 
 ## \[Symbol.split\]
 
-```js
+```
 RegExp[Symbol.split]( str )
 String.split( RegExp ) // 같은 결과
 ```
@@ -390,7 +390,92 @@ console.log(res);
 // [ 'C', 'C#', 'B', 'C', 'C#', 'B', 'C', 'C#', 'B', 'C', 'C#', 'B' ]
 ```
 
-# 참고
+# JSON
+
+## parse
+
+```
+JSON.parse( text, reviver )
+```
+
+* `text` : JSON 으로 변환할 문자열
+* `reviver` (option) : 분석한 값을 반환하기 전에 변환한다.
+  * `key` : 속성의 키 값 (배열일 경우 인덱스)
+  * `value` : 속성의 값
+
+`text` 에 후행 쉼표가 오면 SyntaxError 가 발생한다.
+
+```js
+const jsonStr = '{"Jeju":1,"Pangyo":2,"Ssangyong":"house"}';
+console.log(JSON.parse(jsonStr, (key, value) => {
+  if(typeof value === 'number') {
+    return value+1;
+  }
+  return value;
+})); // { Jeju: 2, Pangyo: 3, Ssangyong: 'house' }
+```
+
+속성 값이 number 일 경우 1을 더해주는 reviver 함수
+
+## stringify
+
+```
+JSON.stringify( value, replacer, space )
+```
+
+* `value` : JSON 문자열로 변환할 값
+* `replacer(function)` (option) : undefined 를 반환할 경우 해당 속성이 포함되지 않는다.
+  * `key` : 속성의 키 값 (배열일 경우 인덱스)
+  * `value` : 속성의 값 
+* `replacer(array)` (option) : JSON 문자열 결과에 key 가 array 안에 존재하는 속성만 포함된다.
+* `space` (option) : 들여쓰기 space 개수
+
+string(문자열) + ify(~되게끔 만들다) = stringify, 문자열이 되게끔 만들다.
+
+```js
+const obj = {
+  'Jeju': 1,
+  'Pangyo': 2,
+  'Cheonan': {
+    'Ssangyong': 'house'
+  },
+  'func': () => {},
+  'undefined': undefined,
+  'symbol': [ Symbol(''), 3 ]
+};
+console.log(JSON.stringify(obj, (key, value) => {
+  console.log(key, value);
+  if(typeof value === 'number') return undefined;
+  return value;
+})); // "{"Cheonan":{"Ssangyong":"house"},"symbol":[null,null]}"
+```
+
+`function` 과 같이 열거 불가능한 속성은 무시된다. 만약 배열 안에 있을 경우 null 로 변환된다.
+
+```js
+const obj = { 'Jeju': 1, 'Pangyo': 2 };
+JSON.stringify(obj, (key, value) => undefined); // undefined
+```
+
+만약 모든 요소를 제거하기 위해 항상 undefined 를 반환한다면 비어 있는 객체가 아닌 undefined 가 반환된다. 왜냐하면 함수형 replacer 는 첫 호출에 **key** 로 빈 문자열 `''`, **value** 로 `value` 가 들어오기 때문이다.
+
+### - 깊은 복사
+
+```js
+const obj = { 'Jeju': 1, 'Pangyo': 2 };
+
+const _obj = JSON.parse(JSON.stringify(obj));
+const __obj = obj;
+
+console.log(obj === _obj); // false
+console.log(obj === __obj); // true
+```
+
+깊은 복사는 **주소 값**이 아닌 **실제 값**을 복사하는 것을 의미한다.
+
+JSON.stringify() 는 string 원시 타입 `실제 값` 으로 만들어 반환하므로, 이를 JSON.parse() 로 객체로 만들면 완전히 새로운 객체로 만들 수 있다.
+
+# Reference
 
 * [MDN web docs](https://developer.mozilla.org/ko)
 * [생활코딩](https://opentutorials.org/course/743)

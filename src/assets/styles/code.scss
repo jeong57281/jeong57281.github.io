@@ -129,12 +129,28 @@
   background: #e6ffed;
 }
 
+.gatsby-highlight[data-language='text'] pre {
+  padding-top: 1em !important;
+}
+
 .gatsby-highlight[data-language='text']::before {
-  content: 'text';
-  color: #fff;
+  content: '';
+  padding: 0;
 }
 
 .gatsby-highlight[data-language='flow']::before {
   content: 'flow';
   background: #E8BD36;
+}
+
+.gatsby-highlight[data-language='sass']::before {
+  content: 'sass';
+  background: #CF649A;
+  color: #fff;
+}
+
+.gatsby-highlight[data-language='scss']::before {
+  content: 'scss';
+  background: #CF649A;
+  color: #fff;
 }
