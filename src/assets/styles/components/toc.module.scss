@@ -10,8 +10,10 @@
       text-decoration: none;
       color: reverseColor($color);
       transition: background-color ease 0.5s;
-      &:hover {
-        background: url(../../img/overlay.png), darkColor($color);
+      @media (hover: hover) {
+        &:hover {
+          background: url(../../img/overlay.png), darkColor($color);
+        }
       }
     }
     > a {

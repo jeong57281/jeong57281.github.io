@@ -88,8 +88,10 @@
               font-size: 1.9em;
               color: reverseColor($color);
               transition: background-color ease 0.5s;
-              &:hover {
-                background: url(../../img/overlay.png), darkColor($color);
+              @media (hover: hover) {
+                &:hover {
+                  background: url(../../img/overlay.png), darkColor($color);
+                }
               }
             }
           }
@@ -117,8 +119,10 @@
                 font-size: 1.9em;
                 padding: 15px 10px 15px 30px;
                 transition: background-color ease 0.5s;
-                &:hover {
-                  background: url(../../img/overlay.png), darkColor($color);
+                @media (hover: hover) {
+                  &:hover {
+                    background: url(../../img/overlay.png), darkColor($color);
+                  }
                 }
               }
               .active {
