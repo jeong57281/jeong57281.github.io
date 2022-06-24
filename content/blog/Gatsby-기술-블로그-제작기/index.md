@@ -59,6 +59,7 @@ Gatsby 는 정적 사이트 생성기고~ /src/pages 폴더 안의 파일명이 
 4. padding
 
 ```html{5, 9}
+<!-- content-layout.jsx -->
 <div className={style.layout} id="scroll">
   <div className={style.maxWidth}>
     <div className={style.minHeight}>

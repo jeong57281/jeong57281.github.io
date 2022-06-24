@@ -1,7 +1,7 @@
 @import "../libs";
 
 @mixin toc($color: $LIGHT_COLOR) {
-  @include tablet { margin: 0; }
+  @include tablet { padding: 0; }
   padding: 60px 0;
   font-weight: 500;
   background: url(../../img/overlay.png), $color;
