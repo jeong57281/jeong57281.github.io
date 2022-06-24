@@ -404,9 +404,7 @@ RegExp.test( str )
 const obj = [ 'a', 'b', 'c', 'd' ];
 const regexp = new RegExp(/[a-z]/g);
 const res = [];
-obj.forEach(el => {
-  res.push(regexp.test(el));
-});
+obj.forEach(el => res.push(regexp.test(el)));
 console.log(res); // [ true, false, true, false ]
 ```
 
@@ -430,9 +428,7 @@ JSON.parse( text, reviver )
 ```js
 const jsonStr = '{"Jeju":1,"Pangyo":2,"Ssangyong":"house"}';
 console.log(JSON.parse(jsonStr, (key, value) => {
-  if(typeof value === 'number') {
-    return value+1;
-  }
+  if(typeof value === 'number') return value+1;
   return value;
 })); // { Jeju: 2, Pangyo: 3, Ssangyong: 'house' }
 ```
