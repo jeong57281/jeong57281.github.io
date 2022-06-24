@@ -390,6 +390,28 @@ console.log(res);
 // [ 'C', 'C#', 'B', 'C', 'C#', 'B', 'C', 'C#', 'B', 'C', 'C#', 'B' ]
 ```
 
+## test
+
+```
+RegExp.test( str )
+```
+
+* `str` : 정규 표현식이 일치하는 부분이 있는지 확인할 문자열
+
+일치하는 부분이 있으면 true, 없으면 false 를 반환한다.
+
+```js
+const obj = [ 'a', 'b', 'c', 'd' ];
+const regexp = new RegExp(/[a-z]/g);
+const res = [];
+obj.forEach(el => {
+  res.push(regexp.test(el));
+});
+console.log(res); // [ true, false, true, false ]
+```
+
+만약 전역 탐색 플래그 `g` 가 주어진다면 false 를 반환할 때 까지 `lastIndex` 가 계속해서 증가하므로, 다른 문자열로 재사용했을 때 문제가 될 수 있다.
+
 # JSON
 
 ## parse
