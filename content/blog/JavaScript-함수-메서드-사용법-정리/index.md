@@ -16,7 +16,7 @@ tags: ['JavaScript']
 parseInt( string, base )
 ```
 
-* `string` : 10진수로 변환할 (문자열) 진수
+* `string` : 10진수로 변환할 문자열
 * `base` (option) : string 진수의 밑수 (string 이 2진법 문자열일 경우 2)
 
 base 를 생략할 경우 default 값으로 string 진수의 밑수가 초기화 된다. (default 값이 10이 아님에 유의)
@@ -35,10 +35,46 @@ parseInt(15.4) // 15
 
 # Array
 
+## map
+
+```
+Array.map( callback( currentValue, index, array ), thisArg)
+```
+
+* `callback` : 새로운 배열 값을 만들어내는 함수
+  * `currentValue` : 요소 값
+  * `index` (option) : 요소 인덱스
+  * `array` (option) : 호출한 배열
+* `thisArg` (option) : callback 함수에서 this 로 사용할 값
+
+```js
+const arr = ['1', '2', '3', '4', '5'];
+const res = arr.map((currentValue, index, array) => {
+  console.log(currentValue); // 1, 2
+  if(index === 0) array.splice(2, 3);
+  return Number(currentValue);
+});
+console.log(res); // [ 1, 2, <3 empty items> ]
+console.log(res.length); // 5
+```
+
+callback 함수 내에서 원본 배열의 값이 삭제되었을 경우, 삭제된 요소를 방문하지 않으며 결과 배열에는 빈 값이 자리를 대체하게 된다.
+
+### - string 배열을 정수 number 배열로 변경하기
+
+```js
+const arr = ['1', '2', '3', '4', '5'];
+arr.map(Number); // [1, 2, 3, 4, 5]
+```
+
+원시 래퍼 객체 Number 의 생성자 함수를 callback 함수로 전달해 배열의 모든 string 요소를 number 배열로 변경한다.
+
+만약 같은 결과를 얻기 위해 parseInt 함수를 callback 으로 전달해주면 전혀 다른 배열을 돌려받는다. 이유는 map 은 callback 함수에 3개의 매개인자를 전달하는데, [parseInt](#parseint) 의 두 번째 옵션 매개인자인 `base` 로 index 값이 전달되기 때문이다.
+
 ## forEach
 
 ```
-Array.forEach( function( currentValue, index, array ), thisArg )
+Array.forEach( callback( currentValue, index, array ), thisArg )
 ```
 
 * `callback` : 배열의 값을 순차적으로 전달받음
@@ -47,7 +83,7 @@ Array.forEach( function( currentValue, index, array ), thisArg )
   * `array` (option) : 호출한 배열
 * `thisArg` (option) : callback 함수에서 this 로 사용할 값
 
-\- thisArg 는 this 값을 가지지 않는 화살표 함수나, function 에 직접 this 를 bind 하는 것으로 대체할 수 있다. <br/>
+\- thisArg 는 this 값을 가지지 않는 화살표 함수나, callback 함수에 직접 this 를 bind 하는 것으로 대체할 수 있다. <br/>
 \- forEach 는 undefined 를 반환하므로 메서드 체인의 중간에 사용할 수 없다. <br/>
 \- 예외를 발생시키지 않고서는 중간에 멈출 수 없다.
 
@@ -75,7 +111,7 @@ Array.slice( begin, end )
 ## reduce
 
 ```
-Array.reduce( function ( accumulator, currentValue, currentIndex, array ), initalValue )
+Array.reduce( callback ( accumulator, currentValue, currentIndex, array ), initalValue )
 ```
 
 * `callback`
@@ -98,7 +134,7 @@ arr.reduce((s, c) => s+c, 0); // 10
 
 ## slice
 
-Array 의 slice 와 사용법이 같다.
+[Array.slice()](#slice) 와 사용법이 같다.
 
 ## fromCharCode
 
