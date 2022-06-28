@@ -30,7 +30,7 @@ const BlogPost = ({ location, data }) => {
   const titleId = markdownRemark.id.replaceAll(/[0-9\-]/g, '');
   return (
     <section className={!theme ? style.post : style.postDark}>
-      <Helmet title={markdownRemark.frontmatter.title}/>
+      <Helmet title={`${markdownRemark.frontmatter.title} - ${data.site.siteMetadata.nickname}'s blog`}/>
       <aside className={style.aside}>
         <div className={style.postToc}>
           <Toc
