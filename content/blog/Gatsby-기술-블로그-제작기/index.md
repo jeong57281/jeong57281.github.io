@@ -58,7 +58,7 @@ Gatsby 는 정적 사이트 생성기고~ /src/pages 폴더 안의 파일명이 
 3. 항목이 없을 때에도 footer 가 보이지 않도록 최소 높이를 지정한다.
 4. padding
 
-```html{5, 9}
+```html{6, 10}
 <!-- content-layout.jsx -->
 <div className={style.layout} id="scroll">
   <div className={style.maxWidth}>
