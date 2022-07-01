@@ -67,7 +67,7 @@ const arr = ['1', '2', '3', '4', '5'];
 arr.map(Number); // [1, 2, 3, 4, 5]
 ```
 
-원시 래퍼 객체 Number 의 생성자 함수를 callback 함수로 전달해 배열의 모든 string 요소를 number 배열로 변경한다.
+원시 래퍼 객체 [Number 의 생성자 함수](#number)를 callback 함수로 전달해 배열의 모든 string 요소를 number 배열로 변경한다.
 
 만약 같은 결과를 얻기 위해 parseInt 함수를 callback 으로 전달해주면 전혀 다른 배열을 돌려받는다. 이유는 map 은 callback 함수에 3개의 매개인자를 전달하는데, [parseInt](#parseint) 의 두 번째 옵션 매개인자인 `base` 로 index 값이 전달되기 때문이다.
 
@@ -213,13 +213,31 @@ String.padStart( targetLength, padString )
 
 # Number
 
+```
+Number( value )
+```
+
+* `value` : number 타입으로 변환할 값
+
+`Number` 원시 래퍼 객체를 함수 형태로 사용할 경우 number 타입으로 형변환 할 수 있다.
+
+```js
+console.log(Number('0x4a'), Number('4a')); // 74 NaN
+```
+
+`0x` 를 붙이지 않은 16진수 문자열이 들어올 경우의 출력이다.
+
+위와 같이 문자열로 변환할 수 없는 값이 들어올 경우 `NaN` 를 반환한다.
+
 ## toString
 
 ```
 Number.toString( base )
 ```
 
-* `base` : 변환할 진수의 밑수 (2진법의 경우 2)
+* `base` (option) : 변환할 진수의 밑수 (2진법의 경우 2)
+
+base 생략 시 10진수로 가정한다.
 
 ### - 진법 변환 10 to N
 
