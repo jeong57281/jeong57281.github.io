@@ -1,8 +1,8 @@
 ---
-title: 'knu lms scheduler 프로젝트' 
+title: 'knu lms scheduler 프로젝트 후기'
 titleImage: '/img/thumbnail/4.jpg'
 date: '2021-12-15'
-tags: ['Project']
+tags: ['Project', 'Review']
 ---
 
 ## 개발 동기

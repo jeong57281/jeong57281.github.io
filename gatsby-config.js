@@ -163,6 +163,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-gifs',
           {
             resolve: 'gatsby-remark-images',
             options: {

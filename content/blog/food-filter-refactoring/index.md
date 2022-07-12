@@ -1,5 +1,5 @@
 ---
-title: 'food filter 프로젝트 - refactoring' 
+title: 'food filter 프로젝트 - refactoring'
 titleImage: '/img/thumbnail/api.png'
 date: '2022-04-25'
 tags: ['Project']
