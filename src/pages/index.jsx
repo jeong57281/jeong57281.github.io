@@ -28,12 +28,18 @@ const Index = ({ location, data }) => {
     return (
       <div className={style.mPagination}>
         <button className={page === 1 ? style.disabled : ''}>
-          <Link to={`/?${tag ? `tag=${encodeURI(tag)}&` : ''}page=${page-1}`}>
+          <Link
+            to={`/?${tag ? `tag=${encodeURI(tag)}&` : ''}page=${page-1}`}
+            onClick={scrollTop}
+          >
             prev
           </Link>
         </button>
         <button className={page === maxPage ? style.disabled : ''}>
-          <Link to={`/?${tag ? `tag=${encodeURI(tag)}&` : ''}page=${page+1}`}>
+          <Link
+            to={`/?${tag ? `tag=${encodeURI(tag)}&` : ''}page=${page+1}`}
+            onClick={scrollTop}
+          >
             next 
           </Link>
         </button>
