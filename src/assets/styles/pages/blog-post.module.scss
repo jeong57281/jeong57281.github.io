@@ -68,11 +68,6 @@
             font-size: 0.9em;
           }
         }
-        sup {
-          a {
-            text-decoration: none;
-          }
-        }
         blockquote {
           border-left: 13px solid darkColor($color);
           transition: border-color ease 0.5s;
@@ -104,6 +99,9 @@
         }
         a {
           color: $MEDIUM_COLOR;
+        }
+        a[href*=fn] {
+          text-decoration: none;
         }
         > ul, ol { 
           margin-bottom: 1.5em;
