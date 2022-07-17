@@ -37,6 +37,43 @@ parseInt(15.4) // 15
 
 # Array
 
+## from
+
+```
+Array.from( arrayLike, mapFn, thisArg )
+```
+
+* `arrayLike` : 새로운 배열로 변환하고자 하는 순회 가능한 객체
+* `mapFn` (option) : 배열의 모든 요소에 대해 호출할 매핑 함수
+* `thisArg` (option) : mapFn 실행 시 this 로 사용할 값
+
+배열 문자열 와 같은 객체 뿐만 아니라, length 를 가지는 유사 배열 객체<sup>[1](#footnote_1)</sup>와 Map, Set 등 순회 가능한 객체도 사용이 가능하다.
+
+### - 중복 원소 제거
+
+```js
+console.log(Array.from(new Set([1,1,2,2,2,3,4]))); // [1, 2, 3, 4]
+```
+
+Set 생성자를 이용해 중복 제거를 원하는 배열을 집합 객체로 만들고 Array.from 메서드를 사용해 다시 새로운 객체로 변환한다.
+
+### - 다차원 배열 생성
+
+```js
+const arr = Array.from(Array(5), () => Array(5).fill(0));
+/*
+[
+  [ 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 0, 0 ]
+]
+*/
+```
+
+`arrayLike` 에 주어진 배열의 모든 원소는 `mapFn` 를 거쳐 배열 원소로 바뀐다.
+
 ## map
 
 ```
@@ -548,6 +585,11 @@ console.log(obj === __obj); // true
 깊은 복사는 **주소 값**이 아닌 **실제 값**을 복사하는 것을 의미한다.
 
 JSON.stringify() 는 string 원시 타입 `실제 값` 으로 만들어 반환하므로, 이를 JSON.parse() 로 객체로 만들면 완전히 새로운 객체로 만들 수 있다.
+
+# 각주
+
+<a id="footnote_1">1.</a> 배열처럼 보이지만 key 가 숫자이고 length 값을 가지고 있는 객체를 말한다. 예를 들면 `document.querySelectorAll()` 로 가져온 `NodeList` 객체가 있다.
+![4](./4.png)
 
 # Reference
 

@@ -59,13 +59,18 @@
         p,
         li {
           code {
-            padding: 2px 6px;
+            padding: 1.5px 6px;
             border-radius: $BORDER_RADIUS;
             color: reverseColor($color);
             background: darkColor($color);
             transition: background-color ease 0.5s;
             font-family: "AppleSDGothicNeo";
             font-size: 0.9em;
+          }
+        }
+        sup {
+          a {
+            text-decoration: none;
           }
         }
         blockquote {
@@ -124,7 +129,6 @@
         }
         table {
           font-size: 0.9em;
-          width: 100%;
           padding: 0.5em;
           margin-bottom: 1.5em;
           border-collapse: collapse;
