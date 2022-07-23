@@ -35,7 +35,7 @@ export const query = graphql`
         github
         instagram
         gmail
-        blog
+        tistory
         skills {
           name
           image

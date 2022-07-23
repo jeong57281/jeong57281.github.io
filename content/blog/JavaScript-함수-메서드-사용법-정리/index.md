@@ -47,7 +47,7 @@ Array.from( arrayLike, mapFn, thisArg )
 * `mapFn` (option) : 배열의 모든 요소에 대해 호출할 매핑 함수
 * `thisArg` (option) : mapFn 실행 시 this 로 사용할 값
 
-배열 문자열 와 같은 객체 뿐만 아니라, length 를 가지는 유사 배열 객체<sup id="rfn_1">[1](#fn_1)</sup>와 Map, Set 등 순회 가능한 객체도 사용이 가능하다.
+배열 문자열 와 같은 객체 뿐만 아니라, length 를 가지는 유사 배열 객체<sup id="rfn_1">[[1]](#fn_1)</sup>와 Map, Set 등 순회 가능한 객체도 사용이 가능하다.
 
 ### - 중복 원소 제거
 
@@ -588,7 +588,7 @@ JSON.stringify() 는 string 원시 타입 `실제 값` 으로 만들어 반환�
 
 # 각주
 
-<a id="fn_1" href="#rfn_1">1.</a> 배열처럼 보이지만 key 가 숫자이고 length 값을 가지고 있는 객체를 말한다. 예를 들면 `document.querySelectorAll()` 로 가져온 `NodeList` 객체가 있다.
+<a id="fn_1" href="#rfn_1">[1] </a>배열처럼 보이지만 key 가 숫자이고 length 값을 가지고 있는 객체를 말한다. 예를 들면 `document.querySelectorAll()` 로 가져온 `NodeList` 객체가 있다.
 ![4](./4.png)
 
 # Reference

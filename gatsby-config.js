@@ -116,7 +116,7 @@ module.exports = {
     github: 'https://github.com/jeong57281',
     instagram: 'https://www.instagram.com/j__ghy__/',
     gmail: 'jeong5728@gmail.com',
-    blog: 'https://ipwag.tistory.com/',
+    tistory: 'https://ipwag.tistory.com/',
     utterances: {
       repo: 'jeong57281/jeong57281.github.io',
       theme: 'github-dark'

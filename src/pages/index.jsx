@@ -173,7 +173,7 @@ export const query = graphql`
         github
         instagram
         gmail
-        blog
+        tistory
       }
     }
     allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
