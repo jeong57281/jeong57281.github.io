@@ -73,7 +73,7 @@
           margin: 0 0 0 30px;
           height: calc(100% - 4px);
           overflow: hidden;
-          border: 2px solid lightColor($color);
+          border: $BORDER_WIDTH solid lightColor($color);
           transition: border-color ease 0.5s;
           .project-text {
             padding: 30px;
