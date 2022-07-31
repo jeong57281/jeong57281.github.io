@@ -35,6 +35,121 @@ parseInt('0110', 2); // 6
 parseInt(15.4) // 15
 ```
 
+# Symbol
+
+\- Object 가 아닌 원시 데이터형의 일종이다. (new 키워드로 심볼 래퍼 객체를 생성 할 수 없다.)
+\- `for ... in` 반복문 내에서 열거되지 않는다.
+\- 심볼을 키로 사용한 속성은 JSON.stringify() 를 사용할 때 완전히 무시된다.
+
+## Symbol
+
+```
+Symbol( string )
+```
+
+* `string` (option) : 심볼을 설명하는 문자열
+
+### - 고유한 심볼 값 생성
+
+```js
+const sym1 = Symbol('foo');
+const sym2 = Symbol('foo');
+console.log(sym1 === sym2); // false
+```
+
+원시 심볼값을 생성하려면 `Symbol()` 를 호출하면 된다. 항상 고유한 심볼을 새롭게 생성한다.
+
+# Map
+
+```js
+new Map([['key', 'value'], ['key2', 'value2']]);
+```
+
+크기가 2인 배열을 요소로 갖는 2차원 배열을 생성자로 넘겨 초기화 할 수 있다.
+
+\+ `for ... of` 를 사용할 수 있다. (순회 가능한 객체이다.)<br/>
+\+ 입력 순서가 보장된다.<br/>
+
+### - 잘못된 사용법
+
+Object 를 사용하듯이 대괄호로 값을 할당하거나 참조하면 올바르게 작동하지 않는다.
+
+```js
+const wrongMap = new Map();
+wrongMap['hello'] = 'hi';
+wrongMap.delete('hello'); // false
+wrongMap.has('hello'); // false
+wrongMap.get('hello'); // undefined
+```
+
+set 으로 키, 값을 할당하고 대괄호로 참조하는 반대의 경우도 마찬가지로 잘못된 사용법이다.
+
+### - 요소 개수 확인
+
+```js
+const map = new Map();
+map.set('a', 'b');
+map.set('c', 'd');
+map.size; // 2
+```
+
+size 속성이 있어 쉽게 요소의 개수를 확인할 수 있다.
+
+## get
+
+```
+MapObj.get( key )
+```
+
+* `key` : Map 에서 가져오려고 하는 요소의 키 값
+
+키 값이 존재할 경우 요소를, 존재하지 않을 경우에 undefined 를 반환한다.
+
+## has
+
+```
+MapObj.has( key )
+```
+
+* `key` : Map 에 존재여부를 확인하려고 하는 요소의 키 값
+
+요소가 존재하면 true 를 존재하지 않으면 false 를 반환한다.
+
+## set
+
+```
+MapObj.set( key, value )
+```
+
+* `key` : Map Object 에 삽입할 요소의 키 값
+* `value` : Map Object 에 삽입할 값
+
+주요 특징은 키 값으로 원시 값(primitive value)과 객체(object)까지 모두 사용할 수 있다는 점이다.
+
+## delete
+
+```
+MapObj.delete( key )
+```
+
+* `key` : Map 에서 지우려고 하는 키 값
+
+정상적으로 삭제될 경우 true, 삭제할 값이 없는 경우 false 를 반환한다.
+
+## forEach
+
+```
+MapObj.forEach( function ( value, key, map ) )
+```
+
+* `callback` : Map 객체의 요소를 순차적으로 전달받음
+  * `value` (option) : 요소의 값
+  * `key` (option) : 요소의 키 값
+  * `map` (option) : 호출한 Map 객체
+* `thisArg` (option) : callback 함수에서 this 로 사용할 값
+
+key, value 순서로 값을 할당하는 set 메서드와는 다르게 value, key 순서로 입력이 들어온다.
+
 # Array
 
 ## sort
